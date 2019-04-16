@@ -5,15 +5,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class UserController extends AbstractController
+class FabLabController extends AbstractController
 {
     /**
-     * @Route("/user", name="user")
+     * @Route("/fablab", name="fab_lab")
      */
     public function index()
     {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+        return $this->render('fab_lab/index.html.twig', [
+            'controller_name' => 'FabLabController',
         ]);
     }
 }

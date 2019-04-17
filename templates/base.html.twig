@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav" id="searchright">
                     <li class="nav-item">
-                        <form class="form-inline">
+                        <form class="form-inline d-none d-lg-block">
                             <input class="form-control mr-sm-1" type="search" placeholder="Recherche" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">R</button>
                         </form>
@@ -32,13 +32,13 @@
                 </ul>
                 <ul class="navbar-nav">   
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Projets </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Projets </a>
 
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Nos projet</a>
-                          <a class="dropdown-item" href="#">Ajouter un projet</a>
-                      </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ path('project_list') }}">Nos projets</a>
+                            <a class="dropdown-item" href="{{ path('project_add') }}">Ajouter un projet</a>
+                        </div>
                     </li>
                 </ul>
 
@@ -57,7 +57,7 @@
                         
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Nos faplab</a>
-                                <a class="dropdown-item" href="#">Ajouter un fablab</a>
+                                <a class="nav-item nav-link" href="#">Ajouter un fablab</a>
                             </div>
                     </li>
                 </ul>
@@ -71,6 +71,10 @@
                 </ul>
                 </div>
             </div>
+            <form class="form-inline d-lg-none">
+                            <input class="form-control mr-sm-1" type="search" placeholder="Recherche" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">R</button>
+                </form>
         </nav>
         {% block body %}{% endblock %}
         <footer class="bg-dark text-light text-center py-3">

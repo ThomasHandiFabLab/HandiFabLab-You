@@ -16,33 +16,17 @@ class ProjectController extends AbstractController
     public function list( Request $request, ProjectService $projectService ){
         $query = $request->query->get( 'query' );
         $sort = $request->query->get( 'sort', 'id' );
-        if( !empty( $query ) ){
-            $projects = $projectService->search( $query, $sort );
-        }else{
-            $projects = $projectService->getAll( $sort );
-        }
         return $this->render( 'project/list.html.twig', array(
-            'projects' => $projects,
-            'incomingCounter' => $projectService->countIncoming(),
+            'projects' => $projects(),
         ));
     }
     /**
-     * @Route("/projects/add", name="project_add")
+     * @Route("/project/add", name="project_add")
      */
     public function add( Request $request ){
         $project = new Project();
         $form = $this->createForm( ProjectType::class, $project );
-        $form->handleRequest( $request );
-        if( $form->isSubmitted() && $form->isValid() ){
-            $project->setOwner( $this->getUser() );
-            $em = $this->getDoctrine()->getManager();
-            $em->persist( $project );
-            $em->flush();
-            return $this->redirectToRoute( 'project_show', array(
-                'id' => $project->getId(),
-            ));
-        }
-        return $this->render( 'project/add.html.twig', array(
+        return $this->render( 'projects/add.html.twig', array(
             'form' => $form->createView(),
         ));
     }

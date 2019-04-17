@@ -29,7 +29,7 @@ class Project
     private $start_at;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
     private $end_ad;
 

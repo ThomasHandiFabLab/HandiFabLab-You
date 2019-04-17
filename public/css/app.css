@@ -10,6 +10,8 @@ hidden logo
     #searchright{
         justify-content: right;
     }
+}
+
 html, body{
     min-height: 100vh;
     margin: 0;
@@ -54,46 +56,46 @@ html, body{
     font-size: 2rem;
 }
 
-.events{
+.projects{
     display: flex;
     flex-wrap: wrap;
     max-width: 1280px;
     margin: 0 auto;
 }
 
-.events .event{
+.projects .project{
     width: calc( 33% - 40px );
     margin: 20px;
 }
 
-.events .event-picture{
+.projects .project-picture{
     height: 200px;
     background-size: cover;
     background-position: right;
     position: relative;
 }
 
-.events .event-info{
+.projects .project-info{
     margin: 5px;
     display: flex;
     justify-content: space-around;
     font-size: 1.3rem;
 }
 
-.events .badge-pill{
+.projects .badge-pill{
     position: absolute;
     top: 5px;
     right: 5px;
     font-size: 0.9rem;
 }
 
-.event-landing{
+.project-landing{
     background-size: cover;
     background-position: center;
     height: 300px;
 }
 
-.event-landing__container{
+.project-landing__container{
     width: 100%;
     height: 100%;
     background-color: rgba( 0, 0, 0, 0.5 );
@@ -104,29 +106,29 @@ html, body{
     font-size: 3.2rem;
 }
 
-.event-info > div{
+.project-info > div{
     font-size: 1.2rem;
     margin: 5px 0;
 }
 
-.event-place{
+.project-place{
     display: flex;
 }
 
-.event-place i{
+.project-place i{
     font-size: 2rem;
     margin: 5px 10px 5px 0;
 }
 
-.form-event input, .form-event textarea, .form-event select#event_place{
+.form-project input, .form-project textarea, .form-project select#project_place{
     width: 100%;
 }
 
-.form-event input[type="checkbox"]{
+.form-project input[type="checkbox"]{
     width: auto;
     margin-right: 5px;
 }
 
-.form-event input[type="checkbox"] + label{
+.form-project input[type="checkbox"] + label{
     margin-right: 5px;
 }

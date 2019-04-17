@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ project.name }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="project">
+    <div class="project-landing" style="background-image: url('{{ project.picture }}');">
+        <div class="project-landing__container">
+            {{ project.name }}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-8 p-4">
+                <h2>Description</h2>
+                {{ project.description }}
+
+                <div class="my-4">
+                    <a href="{{ path( 'project_join', { id: project.id } ) }}" class="btn btn-primary btn-lg font-weight-bold">Rejoindre l'événement</a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 bg-dark text-light py-4 project-info">
+                <div class="">
+                    <i class="fas fa-calendar-alt"></i>
+                    {{ project.startAt|date('d/m/Y H:i') }}
+                </div>
+
+                <div class="">
+                    <i class="fas fa-calendar-times"></i>
+                    {{ project.endAt|date('d/m/Y H:i') }}
+                </div>
+
+                <div class="">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ project.place.name ~ ' ' ~  project.place.city }}
+                </div>
+
+                <div class="">
+                    <i class="fas fa-euro-sign"></i>
+                    {{ ( project.price ) ? project.price : 'Gratuit' }}
+                </div>
+
+                <div class="">
+                    <i class="fas fa-users"></i>
+                    {{ project.capacity ?? 'Ilimité' }}
+                </div>
+
+                <div class="">
+                    <i class="fas fa-user"></i>
+                    {{ project.owner.username ~ ' - ' ~ project.owner.email }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

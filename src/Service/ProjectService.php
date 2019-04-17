@@ -17,8 +17,8 @@ class ProjectService{
             return $this->repository -> triDate();
         } elseif ($criteria=='price') {
             return $this->repository -> triPrice();
-        } elseif ($criteria=='capacity') {
-            return $this->repository -> triCapacity();
+        } elseif ($criteria=='name') {
+            return $this->repository -> triName();
         } else {
         return $this->repository->findAll();
         }

@@ -19,7 +19,9 @@ html, body{
 .navbar-brand img{
     height: 40px;
 }
-
+.champ{
+    padding: 0;
+}
 .user-area{
     color: white;
     font-size: 2rem;

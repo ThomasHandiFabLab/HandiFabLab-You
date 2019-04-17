@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +8,6 @@ use App\Service\ProjectService;
 use App\Entity\Project;
 use App\Entity\User;
 use App\Form\ProjectType;
-
 class ProjectController extends AbstractController
 {
     /**
@@ -29,7 +26,6 @@ class ProjectController extends AbstractController
             'incomingCounter' => $projectService->countIncoming(),
         ));
     }
-
     /**
      * @Route("/projects/add", name="project_add")
      */
@@ -63,9 +59,9 @@ class ProjectController extends AbstractController
         ));
     }
     /**
-     * @Route("/event/{id}/join", name="event_join", requirements={"id"="\d+"})
+     * @Route("/project/{id}/join", name="project_join", requirements={"id"="\d+"})
      */
     public function join( $id ){
-        return new Response( 'Event join' );
+        return new Response( 'Project join' );
     }
 }

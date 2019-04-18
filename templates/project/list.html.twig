@@ -4,8 +4,8 @@
 
 {% block body %}
 
-<div class="container-fluid text-center">
-    <div class="row my-4">
+<div class="container text-center">
+    <div id="hiddenbtntri"class="row my-4">
         <div class="col-4">
             <a type="button" class="btn btn-outline-warning" href="{{ path('project_list') }}?criteria=date">Par date</a>
         </div>
@@ -16,44 +16,63 @@
             <a type="button" class="btn btn-outline-danger"  href="{{ path('project_list') }}?criteria=price">Par prix</a>
         </div>
     </div>
-</div>
 
-<div class="projects">
 
-    {% for project in projects %}
-        <div class="card project">
-            <div class="project-picture" style="background-image: url('{{ project.picture }}');">
-                {% if date( project.startAt ) > date() %}
-                    <span class="badge badge-pill badge-danger">A venir</span>
-                {% elseif date( project.endAt ) < date() %}
-                    <span class="badge badge-pill badge-success">Réalisé</span>
-                {% else %}
-                    <span class="badge badge-pill badge-warning">En cours</span>
-                {% endif %}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">{{ project.name }}</h5>
-                <div class="project-info">
-                    <span>
-                        <i class="fab fa-osi"></i>
-                        {{ ( project.price ) ? project.price : 'OSS' }}
-                    </span>
-                    <div class="project-info2">
-                        <span>
-                            <i class="fas fa-weight-hanging"></i>
-                        </span>
-                        <span>
-                            <p>{{ project.weight }}g</p>
-                        </span>
+    <div class="projects">
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card project">
+                    <div class="project-picture">
+                        {% if date( project.startAt ) > date() %}
+                            <span class="badge badge-pill badge-danger">A venir</span>
+                        {% elseif date( project.endAt ) < date() %}
+                            <span class="badge badge-pill badge-success">Réalisé</span>
+                        {% else %}
+                            <span class="badge badge-pill badge-warning">En cours</span>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.name }}</h5>
+                        <div class="project-info">
+                            <div class="row">
+                                <div class="col-sm-6 col-12">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <span>
+                                                <i class="fab fa-osi"></i>
+                                            </span>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>
+                                                {{ ( project.price ) ? project.price : 'OSS' }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-12">
+                                    <div class="row project-info2">
+                                        <div class="col-6">
+                                            <span>
+                                                <i class="fas fa-weight-hanging"></i>
+                                            </span>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>
+                                                <p>{{ project.weight }}g</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">{{ project.description|slice(0,140) }}...</p>
+                        <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche project complète</a>
                     </div>
                 </div>
-                <p class="card-text">{{ project.description|slice(0,140) }}...</p>
-                <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche project complète</a>
             </div>
+            {% endfor %}
         </div>
-
-    {% endfor %}
-
+    </div>
 </div>
-
 {% endblock %}

@@ -1,20 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjectController ! LIST{% endblock %}
+{% block title %}Nos projets - {{ parent() }}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/HandiFabLabNYou/src/Controller/ProjectController.php'|file_link(0) }}">src/Controller/ProjectController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/HandiFabLabNYou/templates/project/index.html.twig'|file_link(0) }}">templates/project/index.html.twig</a></code></li>
-    </ul>
+<div class="container-fluid text-center">
+    <div class="row my-4">
+        <div class="col-4">
+            <a type="button" class="btn btn-outline-warning" href="{{ path('project_list') }}?criteria=date">Par date</a>
+        </div>
+        <div class="col-4">
+            <a type="button" class="btn btn-outline-success" href="{{ path('project_list') }}?criteria=name">Par ordre alphabéthique</a>
+        </div>
+        <div class="col-4">
+            <a type="button" class="btn btn-outline-danger"  href="{{ path('project_list') }}?criteria=price">Par prix</a>
+        </div>
+    </div>
 </div>
+
+<div class="projects">
+
+    {% for project in projects %}
+        <div class="card project">
+            <div class="project-picture" style="background-image: url('{{ project.picture }}');">
+                {% if date( project.startAt ) > date() %}
+                    <span class="badge badge-pill badge-danger">A venir</span>
+                {% elseif date( project.endAt ) < date() %}
+                    <span class="badge badge-pill badge-success">Réalisé</span>
+                {% else %}
+                    <span class="badge badge-pill badge-warning">En cours</span>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ project.name }}</h5>
+                <div class="project-info">
+                    <span>
+                        <i class="fab fa-osi"></i>
+                        {{ ( project.price ) ? project.price : 'OSS' }}
+                    </span>
+                    <div class="project-info2">
+                        <span>
+                            <i class="fas fa-weight-hanging"></i>
+                        </span>
+                        <span>
+                            <p>{{ project.weight }}g</p>
+                        </span>
+                    </div>
+                </div>
+                <p class="card-text">{{ project.description|slice(0,140) }}...</p>
+                <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche project complète</a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>
+
 {% endblock %}

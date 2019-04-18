@@ -12,7 +12,7 @@ class ProjectService{
         $this->om = $om;
         $this->repository = $om->getRepository( Project::class );
     }
-    public function getAll( $criteria ){
+    public function getAll( $criteria = null){
         if ($criteria=='date') {
             return $this->repository -> triDate();
         } elseif ($criteria=='price') {

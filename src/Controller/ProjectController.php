@@ -17,7 +17,7 @@ class ProjectController extends AbstractController
         $query = $request->query->get( 'query' );
         $sort = $request->query->get( 'sort', 'id' );
         return $this->render( 'project/list.html.twig', array(
-            'projects' => $projects(),
+            'projects' => $projectService->getAll(),
         ));
     }
     /**

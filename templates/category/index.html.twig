@@ -1,24 +1,12 @@
 {% extends 'base.html.twig' %}
 
-<<<<<<< HEAD:templates/category/index.html.twig
-{% block title %}Hello CategoryController!{% endblock %}
-=======
 {% block title %}Ajouter un projet - {{ parent() }}{% endblock %}
->>>>>>> 18/04A:templates/projects/add.html.twig
 
 {% block body %}
 
     <div class="container form-event my-4">
         {{ form_start( form, { attr: { novalidate: 'novalidate' } } ) }}
 
-<<<<<<< HEAD:templates/category/index.html.twig
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/HandiFabLabNYou/src/Controller/CategoryController.php'|file_link(0) }}">src/Controller/CategoryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/HandiFabLabNYou/templates/category/index.html.twig'|file_link(0) }}">templates/category/index.html.twig</a></code></li>
-    </ul>
-</div>
-=======
         <div class="row">
             <div class="col-12">
                 {{ form_row( form.name ) }}
@@ -61,5 +49,4 @@
         <button class="btn btn-primary" type="submit">Ajouter</button>
         {{ form_end( form ) }}
     </div>
->>>>>>> 18/04A:templates/projects/add.html.twig
 {% endblock %}

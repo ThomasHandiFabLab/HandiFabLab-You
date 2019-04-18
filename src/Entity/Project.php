@@ -29,9 +29,9 @@ class Project
     private $start_at;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
-    private $end_ad;
+    private $end_at;
 
     /**
      * @ORM\Column(type="datetime")
@@ -134,14 +134,14 @@ class Project
         return $this;
     }
 
-    public function getEndAd(): ?string
+    public function getEndAt(): ?\DateTimeInterface
     {
-        return $this->end_ad;
+        return $this->end_at;
     }
 
-    public function setEndAd(string $end_ad): self
+    public function setEndAt(\DateTimeInterface $end_at): self
     {
-        $this->end_ad = $end_ad;
+        $this->end_at = $end_at;
 
         return $this;
     }

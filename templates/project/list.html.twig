@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos projets - {{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid text-center">
+    <div class="row my-4">
+        <div class="col-4">
+            <a type="button" class="btn btn-outline-warning" href="{{ path('project_list') }}?criteria=date">Par date</a>
+        </div>
+        <div class="col-4">
+            <a type="button" class="btn btn-outline-success" href="{{ path('project_list') }}?criteria=name">Par ordre alphabéthique</a>
+        </div>
+        <div class="col-4">
+            <a type="button" class="btn btn-outline-danger"  href="{{ path('project_list') }}?criteria=price">Par prix</a>
+        </div>
+    </div>
+</div>
+
+<div class="projects">
+
+    {% for project in projects %}
+        <div class="card project">
+            <div class="project-picture" style="background-image: url('{{ project.picture }}');">
+                {% if date( project.startAt ) > date() %}
+                    <span class="badge badge-pill badge-danger">A venir</span>
+                {% elseif date( project.endAt ) < date() %}
+                    <span class="badge badge-pill badge-success">Réalisé</span>
+                {% else %}
+                    <span class="badge badge-pill badge-warning">En cours</span>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ project.name }}</h5>
+                <div class="project-info">
+                    <span>
+                        <i class="fab fa-osi"></i>
+                        {{ ( project.price ) ? project.price : 'OSS' }}
+                    </span>
+                    <div class="project-info2">
+                        <span>
+                            <i class="fas fa-weight-hanging"></i>
+                        </span>
+                        <span>
+                            <p>{{ project.weight }}g</p>
+                        </span>
+                    </div>
+                </div>
+                <p class="card-text">{{ project.description|slice(0,140) }}...</p>
+                <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche project complète</a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

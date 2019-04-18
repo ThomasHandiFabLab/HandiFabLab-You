@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 16 avr. 2019 à 08:52
+-- Généré le :  jeu. 18 avr. 2019 à 12:15
 -- Version du serveur :  10.1.37-MariaDB
 -- Version de PHP :  7.3.0
 
@@ -92,7 +92,7 @@ CREATE TABLE `project` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_at` datetime NOT NULL,
-  `end_ad` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `end_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `deadline_at` datetime DEFAULT NULL,
@@ -104,6 +104,13 @@ CREATE TABLE `project` (
   `height` decimal(10,2) NOT NULL,
   `fablab_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `project`
+--
+
+INSERT INTO `project` (`id`, `name`, `start_at`, `end_at`, `created_at`, `description`, `deadline_at`, `price`, `picture`, `weight`, `width`, `length`, `height`, `fablab_id`) VALUES
+(1, 'Le Kévin - 1.6', '2019-01-14 00:00:00', '0000-00-00 00:00:00', '2019-01-15 00:00:00', 'Joystick pour myopathie avancé. Empêche que la main ne tombe de la manette.', '2019-04-25 00:00:00', 0, 'https://csg.tinkercad.com/things/2MAjMFJoQuX/t725.png', '10.00', '65.34', '75.00', '41.19', NULL);
 
 -- --------------------------------------------------------
 
@@ -250,7 +257,7 @@ ALTER TABLE `photo`
 -- AUTO_INCREMENT pour la table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `user`

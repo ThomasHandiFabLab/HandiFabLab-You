@@ -11,7 +11,7 @@ use App\Form\ProjectType;
 class ProjectController extends AbstractController
 {
     /**
-     * @Route("/projects", name="project_list")
+     * @Route("/project", name="project_list")
      */
     public function list( Request $request, ProjectService $projectService ){
         $query = $request->query->get( 'query' );
@@ -26,7 +26,7 @@ class ProjectController extends AbstractController
     public function add( Request $request ){
         $project = new Project();
         $form = $this->createForm( ProjectType::class, $project );
-        return $this->render( 'projects/add.html.twig', array(
+        return $this->render( 'project/add.html.twig', array(
             'form' => $form->createView(),
         ));
     }

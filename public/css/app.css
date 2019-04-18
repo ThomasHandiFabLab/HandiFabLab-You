@@ -23,6 +23,9 @@ html, body{
 .champ{
     padding: 0;
 }
+.linkwhite{
+    color: white;
+}
 .user-area{
     color: white;
     font-size: 2rem;

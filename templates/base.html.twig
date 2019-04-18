@@ -23,31 +23,30 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav" id="searchright">
-                        <li class="nav-item">
-                            <form class="form-inline d-none d-lg-block">
-                                <input aria-label="Search" class="form-control mr-sm-1" placeholder="Recherche" type="search">
-                                <button class="btn btn-outline-success" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </form>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                                Projets
-                            </a>
-                            <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Nos projet</a>
-                                <a class="dropdown-item" href="{{ path('project_add') }}">Ajouter un projet</a>
-                            </div>
-                        </li>
-                    </ul>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <form class="form-inline d-none d-lg-block">
+                            <input class="form-control mr-sm-1" type="search" placeholder="Recherche" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Projets </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ path('project_list') }}">Nos projets</a>
+                            <a class="dropdown-item" href="{{ path('project_add') }}">Ajouter un projet</a>
+                        </div>
+                    </li>
+                </ul>
             
                 <ul class="navbar-nav" id="hiddenlogo">
                     <li class="nav-item">
@@ -62,6 +61,7 @@
                                 Fablab </a>
                         
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                                 <a class="dropdown-item" href="{{ path('fablab_list') }}">Nos fablabs</a>
                                 <a class="nav-item nav-link" href="{{ path('fablab_add') }}">Ajouter un fablabs</a>
 
@@ -83,6 +83,7 @@
                                 </li>
                         {% endif %}
                     </ul>
+
                 </div>
                 <form class="form-inline d-lg-none">
                     <div class="row">
@@ -97,17 +98,17 @@
                     </div>
                 </form>
             </div>
-            <form class="form-inline d-lg-none">
-                            <input class="form-control mr-sm-1" type="search" placeholder="Recherche" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">R</button>
-                </form>
+            <form class="form-inline d-none">
+                <input class="form-control mr-sm-1" type="search" placeholder="Recherche" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            </form>
         </nav>
         {% block body %}{% endblock %}
         <footer class="bg-dark text-light text-center py-3">
-            <a class="nav-link" href="#" style="">Contact</a>
-            Handi FabLab -
-            {{ date()|date('Y') }}
 
+        <a class="nav-link linkwhite" href="#" style="" >Contact</a>
+            Handi FabLab - {{ date()|date('Y') }}
+            
         </footer>
         <!--JSetBootstrap-->
         <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -91,7 +91,7 @@ class ProjectType extends AbstractType
                     'placeholder' => "Nom de du FabLab"
                 ),
             ))
-        ;
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

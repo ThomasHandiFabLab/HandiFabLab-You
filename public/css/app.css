@@ -140,3 +140,15 @@ html, body{
 .form-project input[type="checkbox"] + label{
     margin-right: 5px;
 }
+.midform{
+    padding-top: 300px;
+    padding-bottom: 300px;
+}
+/*
+ SLICK
+*/
+.circle{
+    width: 75%;
+    height: 300px;
+    border-radius: 15%;
+}

@@ -18,7 +18,7 @@ class ProjectType extends AbstractType
             ->add('name', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Nom de du projet"
+                    'placeholder' => "Nom du projet"
                 ),
             ))
             ->add('created_at', null, array(
@@ -28,7 +28,7 @@ class ProjectType extends AbstractType
             ->add('description', null, array(
                 'label' => false,
                 'attr' => array(
-                'placeholder' => "Desciption"
+                'placeholder' => "Description"
                 )
             ))
             ->add('deadline_at', null, array(
@@ -47,25 +47,25 @@ class ProjectType extends AbstractType
             ->add('weight', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Poid maximale de l'objet"
+                    'placeholder' => "Poids de l'objet"
                 ),
             ))
             ->add('width', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Largeur de l'object"
+                    'placeholder' => "Largeur de l'objet"
                 ),
             ))
             ->add('length', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Longueur de l'object"
+                    'placeholder' => "Longueur de l'objet"
                 ),
             ))
             ->add('height', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Hauteur de l'object"
+                    'placeholder' => "Hauteur de l'objet"
                 ),
             ))
             ;

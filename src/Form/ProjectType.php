@@ -22,7 +22,7 @@ class ProjectType extends AbstractType
                 ),
             ))
             ->add('created_at', null, array(
-                'date_widget' => 'single_text',
+                'widget' => 'choice',
                 'label' => 'Début demande :'
             ))
             ->add('description', null, array(
@@ -31,11 +31,11 @@ class ProjectType extends AbstractType
                 )
             ))
             ->add('deadline_at', null, array(
-                'date_widget' => 'single_text',
+                'widget' => 'choice',
                 'label' => 'Au plus tard :'
             ))
             ->add('price', MoneyType::class, array(
-                'label' => 'Prix '
+                'label' => 'Prix'
             ))
             ->add('picture', UrlType::class, array(
                 'label' => false,

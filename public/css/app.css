@@ -63,10 +63,6 @@ html, body{
     font-size: 2rem;
 }
 
-
-
-
-
 .projects .project-picture{
     height: 200px;
     background-size: cover;
@@ -139,4 +135,9 @@ html, body{
 
 .form-project input[type="checkbox"] + label{
     margin-right: 5px;
+}
+
+.footer-flex{
+    display: flex;
+    justify-content: space-around;
 }

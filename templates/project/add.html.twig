@@ -4,30 +4,21 @@
 
 {% block body %}
 
-        <div class="row">
-            <div class="col-12">
+        <div class="row my-4 mx-4">
+            <div class="col-12 my-4 mx-4">
                 {{ form_row( form.name ) }}
             </div>
             <div class="col-md-6 col-12">
-                {{ form_row( form.start_at ) }}
+                {{ form_row( form.created_at ) }}
             </div>
             <div class="col-md-6 col-12">
-                {{ form_row( form.end_at ) }}
-            </div>
-            <div class="col-md-6 col-12">
-                {{ form_row( form.dateOfDemand ) }}
-            </div>
-                        <div class="col-md-6 col-12">
-                {{ form_row( form.dateLimt ) }}
-            </div>
-            <div class="col-md-6 col-12">
-                {{ form_row( form.description ) }}
-            </div>
-            <div class="col-md-6 col-12">
-                {{ form_row( form.price ) }}
+                {{ form_row( form.deadline_at ) }}
             </div>
             <div class="col-md-6 col-12">
                 {{ form_row( form.picture ) }}
+            </div>
+            <div class="col-md-6 col-12 invisible">
+                {{ form_row( form.price ) }}
             </div>
             <div class="col-md-6 col-12">
                 {{ form_row( form.weight ) }}
@@ -41,9 +32,13 @@
             <div class="col-md-6 col-12">
                 {{ form_row( form.height ) }}
             </div>
+            <div class="col-md-6 col-12">
+                {{ form_row( form.description ) }}
+            </div>
+            
         </div>
 
-        <button class="btn btn-primary" type="submit">Ajouter</button>
+        <button class="btn btn-primary mx-4" type="submit">Ajouter</button>
         {{ form_end( form ) }}
     </div>
 {% endblock %}

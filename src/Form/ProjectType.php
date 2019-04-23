@@ -21,17 +21,9 @@ class ProjectType extends AbstractType
                     'placeholder' => "Nom de du projet"
                 ),
             ))
-            ->add('start_at', null, array(
-                'date_widget' => 'single_text',
-                'label' => 'Début'
-            ))
-            ->add('end_at', null, array(
-                'date_widget' => 'single_text',
-                'label' => 'Fin'
-            ))
             ->add('created_at', null, array(
                 'date_widget' => 'single_text',
-                'label' => 'Début demande'
+                'label' => 'Début demande :'
             ))
             ->add('description', null, array(
                 'attr' => array(
@@ -40,10 +32,10 @@ class ProjectType extends AbstractType
             ))
             ->add('deadline_at', null, array(
                 'date_widget' => 'single_text',
-                'label' => 'Au plus tard'
+                'label' => 'Au plus tard :'
             ))
             ->add('price', MoneyType::class, array(
-                'label' => 'Prix'
+                'label' => 'Prix '
             ))
             ->add('picture', UrlType::class, array(
                 'label' => false,
@@ -75,23 +67,7 @@ class ProjectType extends AbstractType
                     'placeholder' => "Hauteur de l'object"
                 ),
             ))
-            ->add('Categories', null, array(
-                'choice_label' => 'name',
-                'expanded' => true,
-            ))
-            ->add('users', null, array(
-                'label' => false,
-                'attr' => array(
-                    'placeholder' => "URL de l'image"
-                ),
-            ))
-            ->add('fablab', null, array(
-                'label' => false,
-                'attr' => array(
-                    'placeholder' => "Nom de du FabLab"
-                ),
-            ))
-        ;
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

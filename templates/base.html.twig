@@ -102,10 +102,16 @@
             </form>
         </nav>
         {% block body %}{% endblock %}
-        <footer class="bg-dark text-light text-center py-3">
-
-        <a class="nav-link linkwhite" href="#" style="" >Contact</a>
-            Handi FabLab - {{ date()|date('Y') }}
+        <footer class="bg-dark text-light text-center">
+        <div class="row">
+            <div class="col-6 my-2">
+                <p class="" href="#" style="">Contact : handifablab.you@gmail.com</p>
+            </div>
+            <div class="col-6 my-2">
+                <p>Site en prototypage, merci de votre indulgence</p>
+            </div>
+        </div>
+        <p class="py-2">© Tout droits réservés - {{ date()|date('Y') }}</p>
             
         </footer>
         <!--JSetBootstrap-->

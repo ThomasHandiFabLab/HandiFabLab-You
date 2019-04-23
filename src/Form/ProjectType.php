@@ -21,14 +21,6 @@ class ProjectType extends AbstractType
                     'placeholder' => "Nom de du projet"
                 ),
             ))
-            ->add('start_at', null, array(
-                'date_widget' => 'single_text',
-                'label' => 'Début'
-            ))
-            ->add('end_at', null, array(
-                'date_widget' => 'single_text',
-                'label' => 'Fin'
-            ))
             ->add('created_at', null, array(
                 'date_widget' => 'single_text',
                 'label' => 'Début demande'
@@ -73,22 +65,6 @@ class ProjectType extends AbstractType
                 'label' => false,
                 'attr' => array(
                     'placeholder' => "Hauteur de l'object"
-                ),
-            ))
-            ->add('Categories', null, array(
-                'choice_label' => 'name',
-                'expanded' => true,
-            ))
-            ->add('users', null, array(
-                'label' => false,
-                'attr' => array(
-                    'placeholder' => "URL de l'image"
-                ),
-            ))
-            ->add('fablab', null, array(
-                'label' => false,
-                'attr' => array(
-                    'placeholder' => "Nom de du FabLab"
                 ),
             ))
             ;

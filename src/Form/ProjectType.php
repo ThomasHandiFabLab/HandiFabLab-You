@@ -26,8 +26,9 @@ class ProjectType extends AbstractType
                 'label' => 'Début demande :'
             ))
             ->add('description', null, array(
+                'label' => false,
                 'attr' => array(
-                'rows' => 4
+                'placeholder' => "Desciption"
                 )
             ))
             ->add('deadline_at', null, array(

@@ -137,7 +137,16 @@ html, body{
     margin-right: 5px;
 }
 
-.footer-flex{
-    display: flex;
-    justify-content: space-around;
+.midform{
+    padding-top: 300px;
+    padding-bottom: 300px;
+}
+/*
+ SLICK
+*/
+
+.circle{
+    width: 75%;
+    height: 300px;
+    border-radius: 15%;
 }

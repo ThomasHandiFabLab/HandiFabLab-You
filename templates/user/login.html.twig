@@ -2,6 +2,8 @@
 
 {% block title %}Connexion - {{ parent() }}{% endblock %}
 
+{% block nav %}{% endblock %}
+
 {% block body %}
 
 {% if error %}
@@ -9,19 +11,28 @@
         <p>Erreur dans les identifiants, veuillez réessayer.</p>
     </div>
 {% endif %}
-    <form action="" method="" class="container form-project">
+
+<div class="container">
+    <form action="" method="">
         <div class="row midform">
-            <div class="col-12 my-2 text-center">
+            <div class="col-12 text-center">
+                <a class="navbar-brand" href="{{ path('main_index')}}"><img src="{{ asset('images/logo.png') }}" alt="Logo fablab" /></a>
+            </div>
+            <div class="col-12 text-center my-2">
                 <input type="text" placeholder="nom d'utilisateur" name="_username" value="{{ lastUsername }}" />
             </div>
             <div class="col-12 my-4 text-center">
                 <input type="password" placeholder="mot de passe" name="_password" />
+                <small id="" class="form-text text-muted">Ne communique pas tes identifiants</small>
             </div>
-            <div class="col-12 my-4">
-                <button type="submit" class="btn btn-primary" >Connexion</button>
+            <div class="col-12 text-center my-2">
+                <button type="submit" class="btn btn-primary">Connexion</button>
+            </div>
+            <div class="col-12 text-center my-2">
+                <a class="btn btn-primary" href="{{ path('user_register') }}">Inscrit-toi</a>
             </div>
         </div>
     </form>
-{% block footer %}{% endblock %}
-
+</div>
 {% endblock %}
+{% block footer %}{% endblock %}

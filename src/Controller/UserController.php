@@ -26,7 +26,7 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist( $user );
             $em->flush();
-            return $this->redirectToRoute( 'event_list' );
+            return new Response('utilisateur ajouté');
         }
         return $this->render('user/register.html.twig', array(
             'form' => $form->createView(),

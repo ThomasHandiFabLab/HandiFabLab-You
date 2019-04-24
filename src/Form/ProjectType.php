@@ -39,11 +39,8 @@ class ProjectType extends AbstractType
             ->add('price', MoneyType::class, array(
                 'label' => 'Prix'
             ))
-            ->add('picture', UrlType::class, array(
-                'label' => false,
-                'attr' => array(
-                    'placeholder' => "URL de l'image"
-                ),
+            ->add('brochure', FileType::class, array(
+                'label' => 'Photo éventuelle (PDF file)'
             ))
             ->add('weight', null, array(
                 'label' => false,

@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ProjectType extends AbstractType
@@ -25,7 +26,7 @@ class ProjectType extends AbstractType
                 'widget' => 'choice',
                 'label' => 'Début demande :'
             ))
-            ->add('description', null, array(
+            ->add('description', TextareaType::class, array(
                 'label' => false,
                 'attr' => array(
                 'placeholder' => "Description"

@@ -141,6 +141,9 @@ html, body{
     padding-top: 310px;
     padding-bottom: 310px;
 }
+.desc{
+    width: 100%;
+}
 /*
 SLICK
 */
@@ -149,4 +152,9 @@ SLICK
     width: 75%;
     height: 300px;
     border-radius: 15%;
+}
+
+.form-row {
+    height: 8rem;
+    border-radius: 5rem;
 }

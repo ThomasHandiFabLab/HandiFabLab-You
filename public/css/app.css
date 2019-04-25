@@ -151,7 +151,7 @@ SLICK
     height: 300px;
     border-radius: 15%;
 }
-/* ********************* Popup infos list.html.twig ******************** */
+
 
 .hoverP{
     color:black;
@@ -178,4 +178,5 @@ SLICK
     transform:scale(1) rotate(0);
     opacity:1;  
     z-index: 5;
+
 }

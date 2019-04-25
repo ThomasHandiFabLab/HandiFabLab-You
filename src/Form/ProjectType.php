@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProjectType extends AbstractType
 {
@@ -39,7 +40,7 @@ class ProjectType extends AbstractType
             ->add('price', MoneyType::class, array(
                 'label' => 'Prix'
             ))
-            ->add('brochure', FileType::class, array(
+            ->add('picture', FileType::class, array(
                 'label' => 'Photo éventuelle (PDF file)'
             ))
             ->add('weight', null, array(

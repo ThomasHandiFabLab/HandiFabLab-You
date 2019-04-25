@@ -220,7 +220,7 @@ class FabLab
             $this->users[] = $user;
             $user->addFablab($this);
         }
-
+        
         return $this;
     }
 

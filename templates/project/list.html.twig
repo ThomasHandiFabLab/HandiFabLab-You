@@ -45,7 +45,10 @@
                                         </div>
                                         <div class="col-6">
                                             <span>
-                                                {{ ( project.price ) ? project.price : 'oss' }}
+                                                <p class="hoverP">
+                                                    {{ ( project.price ) ? project.price : 'oss' }}
+                                                    <span class="hoverpoid">Abréviation conventionné de "Open Source".</span> 
+                                                </p>
                                             </span>
                                         </div>
                                     </div>
@@ -59,7 +62,10 @@
                                         </div>
                                         <div class="col-6">
                                             <span>
-                                                <p>{{ project.weight }}g</p>
+                                                <p class="hoverP">                                                
+                                                    {{ ( project.weight ) ? project.weight : 'inconnu' }} 
+                                                    <span class="hoverpoid">Le poid est indiqué en gramme.</span> 
+                                                </p>
                                             </span>
                                         </div>
                                     </div>

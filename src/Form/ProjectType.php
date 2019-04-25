@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ProjectType extends AbstractType
@@ -18,17 +19,17 @@ class ProjectType extends AbstractType
             ->add('name', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Nom de du projet"
+                    'placeholder' => "Nom du projet"
                 ),
             ))
             ->add('created_at', null, array(
                 'widget' => 'choice',
                 'label' => 'Début demande :'
             ))
-            ->add('description', null, array(
+            ->add('description', TextareaType::class, array(
                 'label' => false,
                 'attr' => array(
-                'placeholder' => "Desciption"
+                'placeholder' => "Description"
                 )
             ))
             ->add('deadline_at', null, array(
@@ -38,34 +39,31 @@ class ProjectType extends AbstractType
             ->add('price', MoneyType::class, array(
                 'label' => 'Prix'
             ))
-            ->add('picture', UrlType::class, array(
-                'label' => false,
-                'attr' => array(
-                    'placeholder' => "URL de l'image"
-                ),
+            ->add('brochure', FileType::class, array(
+                'label' => 'Photo éventuelle (PDF file)'
             ))
             ->add('weight', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Poid maximale de l'objet"
+                    'placeholder' => "Poids de l'objet"
                 ),
             ))
             ->add('width', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Largeur de l'object"
+                    'placeholder' => "Largeur de l'objet"
                 ),
             ))
             ->add('length', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Longueur de l'object"
+                    'placeholder' => "Longueur de l'objet"
                 ),
             ))
             ->add('height', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Hauteur de l'object"
+                    'placeholder' => "Hauteur de l'objet"
                 ),
             ))
             ;

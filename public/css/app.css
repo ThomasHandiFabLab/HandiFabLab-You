@@ -125,11 +125,11 @@ html, body{
 }
 
 .form-project input, .form-project textarea, .form-project select#project_place{
-    width: 100%;
+    width: 70%;
 }
 
 .form-project input[type="checkbox"]{
-    width: auto;
+    width: 70%;
     margin-right: 5px;
 }
 
@@ -138,8 +138,10 @@ html, body{
 }
 
 .midform{
-    padding-top: 100px;
+    padding-top: 200px !important;
+    padding-bottom: 200px;
 }
+
 /*
 SLICK
 */
@@ -148,4 +150,33 @@ SLICK
     width: 75%;
     height: 300px;
     border-radius: 15%;
+}
+
+
+.hoverP{
+    color:black;
+    text-shadow:0 -1px 0 black;                
+}
+.hoverP:hover,.hoverP:focus{
+    background:rgba(0,0,0,.4);
+    box-shadow:0 1px 0 rgba(255,255,255,.4);
+    z-index: 5;   
+}
+.hoverP span{
+    position:absolute;
+    color:#09c;
+    background:rgba(0,0,0,.9);
+    padding:20px;
+    border-radius:3px;
+    box-shadow:0 0 2px rgba(0,0,0,.5);
+    transform:scale(0) rotate(-12deg); 
+    transition:all .25s;
+    opacity:0;
+}
+
+.hoverP:hover span, .hoverP:focus span{
+    transform:scale(1) rotate(0);
+    opacity:1;  
+    z-index: 5;
+
 }

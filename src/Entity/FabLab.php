@@ -233,4 +233,8 @@ class FabLab
 
         return $this;
     }
+    public function __tostring()
+    {
+        return $this->name;
+    }
 }

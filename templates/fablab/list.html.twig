@@ -6,19 +6,22 @@
 <div class="container">
     <div class="row">
         {% for fablab in fablabs %}
-            <div class="col-6 p-4">
-                <div class="card my-2" style="width: 36rem;">
+            <div class="col-12 col-sm-6 d-flex justify-content-around">
+                <div class="card my-4 mx-2 shadow" style="width: 50rem;">
                     <img class="card-img-top" src="{{ asset('images/batiment.jpg') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{ fablab.name }}</h5>
+                        <h5 class="card-title text-center" style="font-size: 2.5rem;">{{ fablab.name }}</h5>
                     </div>
                     <ul class="list-group list-group-flush">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <li class="list-group-item"><i class="fas fa-city"></i> {{ fablab.address }} à {{ fablab.city }}</li>
+
+                                <li class="list-group-item"><i class="fas fa-tasks"></i> projet effectué {{ fablab.nbproject }}</li>
                             </div>
-                            <div class="col-6">
-                                <li class="list-group-item"><i class="fas fa-mobile-alt"></i> {{ fablab.phonenumber }}</li>
+                            <div class="col-12">
+                                <li class="list-group-item"><i class="fas fa-mobile-alt"></i> +33{{ fablab.phonenumber }}</li>
+                                <li class="list-group-item"><i class="fas fa-at"></i> {{ fablab.email }}</li>
                             </div>
                         </div>
 

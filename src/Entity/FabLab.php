@@ -139,7 +139,7 @@ class FabLab
         return $this;
     }
 
-    public function getPhonenumber(): ?int
+    public function getPhonenumber(): ?string
     {
         return $this->phonenumber;
     }

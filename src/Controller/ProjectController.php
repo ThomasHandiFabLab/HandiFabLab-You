@@ -58,9 +58,9 @@ class ProjectController extends AbstractController
                 $file = $product->getPhoto();
                 $fileName = $fileUploaderService->upload($file);
     
-                $product->setBrochure($fileName);
+                $product->setPhoto($fileName);
             }
-
+            
             // ... force la variable $project ou tout autre travail
 
             return $this->redirect($this->generateUrl('app_project_list'));

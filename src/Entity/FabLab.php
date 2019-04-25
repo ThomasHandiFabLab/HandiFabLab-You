@@ -220,7 +220,7 @@ class FabLab
             $this->users[] = $user;
             $user->addFablab($this);
         }
-
+        
         return $this;
     }
 
@@ -233,8 +233,7 @@ class FabLab
 
         return $this;
     }
-    public function __tostring()
-    {
+    public function __toString() {
         return $this->name;
     }
 }

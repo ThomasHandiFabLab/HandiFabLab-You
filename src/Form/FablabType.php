@@ -19,7 +19,6 @@ class FablabType extends AbstractType
             ->add('nbProject')
             ->add('phonenumber')
             ->add('email')
-            ->add('printernumber')
             ->add('users')
         ;
     }

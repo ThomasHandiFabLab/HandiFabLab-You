@@ -6,23 +6,17 @@
 
 {% block body %}
 
-{% if error %}
-    <div class="error">
-        <p>Erreur dans les identifiants, veuillez réessayer.</p>
-    </div>
-{% endif %}
-
 <div class="container">
-    <form action="" method="">
+    <form action="{{ path('user_login')}}" method="post">
         <div class="row midform">
             <div class="col-12 text-center">
                 <a class="navbar-brand" href="{{ path('main_index')}}"><img src="{{ asset('images/logo.png') }}" alt="Logo fablab" /></a>
             </div>
             <div class="col-12 text-center my-2">
-                <input type="text" placeholder="nom d'utilisateur" name="_username" value="{{ lastUsername }}" />
+                <input type="text" placeholder="nom d'utilisateur" required name="_username" value="" />
             </div>
             <div class="col-12 my-4 text-center">
-                <input type="password" placeholder="mot de passe" name="_password" />
+                <input type="password" placeholder="mot de passe" required name="_password" />
                 <small id="" class="form-text text-muted">Ne communique pas tes identifiants</small>
             </div>
             <div class="col-12 text-center my-2">

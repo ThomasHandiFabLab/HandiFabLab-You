@@ -10,16 +10,17 @@ use App\Service\FabLabService;
 use App\Entity\FabLab;
 use App\Entity\User;
 use App\Form\FablabType;
+use App\Repository\FabLabRepository;
 
 class FabLabController extends AbstractController
 {
     /**
      * @Route("/fablabs", name="fablab_list")
      */
-    public function list( Request $request){
-        $query = $request->query->get( 'query' );
-        $sort = $request->query->get( 'sort', 'id' );
-        return $this->render( 'fablab/list.html.twig');
+    public function list( Request $request, FabLabRepository $fablabRepository){
+        return $this->render( 'fablab/list.html.twig', array(
+            'fablabs' => $fablabRepository->findAll(),
+        ));
     }
     /**
      * @Route("/fablab/add", name="fablab_add")

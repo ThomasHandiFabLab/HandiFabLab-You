@@ -54,11 +54,6 @@ class FabLab
     private $email;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $printernumber;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Project", mappedBy="fablab")
      */
     private $projects;
@@ -159,18 +154,6 @@ class FabLab
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPrinternumber(): ?int
-    {
-        return $this->printernumber;
-    }
-
-    public function setPrinternumber(?int $printernumber): self
-    {
-        $this->printernumber = $printernumber;
 
         return $this;
     }

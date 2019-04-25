@@ -18,9 +18,9 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name', null, array(
-                'label' => false,
+                'label' => "Nom du projet",
                 'attr' => array(
-                    'placeholder' => "Nom du projet"
+                    'placeholder' => "Exemple : Joystick 2.0"
                 ),
             ))
             ->add('created_at', null, array(
@@ -28,9 +28,9 @@ class ProjectType extends AbstractType
                 'label' => 'Début demande :'
             ))
             ->add('description', TextareaType::class, array(
-                'label' => false,
+                'label' => "Description",
                 'attr' => array(
-                'placeholder' => "Description"
+                'placeholder' => "Exemple : Ceci est un Joystick adapté spécifiquement pour ..."
                 )
             ))
             ->add('deadline_at', null, array(
@@ -41,7 +41,10 @@ class ProjectType extends AbstractType
                 'label' => 'Prix'
             ))
             ->add('picture', FileType::class, array(
-                'label' => 'Photo éventuelle (PDF file)'
+                'label' => 'Photo éventuelle',
+                'attr' => array(
+                    'placeholder' => "PDF"
+                ),
             ))
             ->add('weight', null, array(
                 'label' => false,

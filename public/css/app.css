@@ -141,7 +141,9 @@ html, body{
     padding-top: 200px !important;
     padding-bottom: 200px;
 }
-
+.shadow{
+    box-shadow: 5px 5px 5px rgba(100, 99, 99, 0.253);
+}
 /*
 SLICK
 */

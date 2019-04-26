@@ -10,7 +10,7 @@
         <div class="row">
             {% for project in projects %}
             <div class="col-md-6 col-lg-4">
-                <div class="card project my-3">
+                <div class="card project my-3 shadow">
                     <div class="project-picture" style="background-image: url('{{ project.picture }}');">
                         {% if date( project.startAt ) > date() %}
                             <span class="badge badge-pill badge-danger">A venir</span>

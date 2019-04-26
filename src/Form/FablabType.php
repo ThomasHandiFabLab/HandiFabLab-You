@@ -12,13 +12,26 @@ class FablabType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('address')
-            ->add('city')
-            ->add('cp')
+            ->add('name', null, array(
+                'label' => 'Nom'
+                ))
+            ->add('address', null, array(
+                'label' => 'Adresse'
+                ))
+            ->add('city', null, array(
+                'label' => 'Ville'
+                ))
+            ->add('cp', null, array(
+                'label' => 'Code postal'
+                ))
             ->add('nbProject')
-            ->add('phonenumber')
-            ->add('email')
+            ->add('phonenumber', null, array(
+                'label' => 'Telephone'
+                ))
+            ->add('email', null, array(
+                'label' => 'Email'
+                ))
+            ->add('printernumber')
             ->add('users')
         ;
     }

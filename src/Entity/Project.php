@@ -88,10 +88,6 @@ class Project
      */
     private $users;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FabLab", inversedBy="projects")
-     */
-    private $fablab;
 
     public function __construct()
     {
@@ -188,12 +184,12 @@ class Project
         return $this;
     }
 
-    public function getPicture(): ?string
+    public function getPicture(): ?Image
     {
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(Image $picture): self
     {
         $this->picture = $picture;
 
@@ -304,18 +300,6 @@ class Project
             $this->users->removeElement($user);
             $user->removeProject($this);
         }
-
-        return $this;
-    }
-
-    public function getFablab(): ?FabLab
-    {
-        return $this->fablab;
-    }
-
-    public function setFablab(?FabLab $fablab): self
-    {
-        $this->fablab = $fablab;
 
         return $this;
     }

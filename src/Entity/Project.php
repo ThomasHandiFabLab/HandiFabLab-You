@@ -79,11 +79,6 @@ class Project
     private $height;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="projects")
-     */
-    private $Categories;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Photo", mappedBy="project", orphanRemoval=true)
      */
     private $photos;
@@ -100,7 +95,6 @@ class Project
 
     public function __construct()
     {
-        $this->Categories = new ArrayCollection();
         $this->photos = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
@@ -254,31 +248,6 @@ class Project
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->Categories;
-    }
-
-    public function addCategory(Category $category): self
-    {
-        if (!$this->Categories->contains($category)) {
-            $this->Categories[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        if ($this->Categories->contains($category)) {
-            $this->Categories->removeElement($category);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Photo[]

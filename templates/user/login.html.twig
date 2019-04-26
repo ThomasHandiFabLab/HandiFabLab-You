@@ -8,6 +8,9 @@
 
 <div class="container">
     <form action="{{ path('user_login')}}" method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
         <div class="row midform">
             <div class="col-12 text-center">
                 <a class="navbar-brand" href="{{ path('main_index')}}"><img src="{{ asset('images/logo.png') }}" alt="Logo fablab" /></a>

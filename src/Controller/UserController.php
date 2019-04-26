@@ -42,8 +42,16 @@ class UserController extends AbstractController
     /**
      * @Route("/login", name="user_login")
      */
-    public function login(){
-        return $this->render( 'user/login.html.twig');
+    public function login(AuthenticationUtils $authenticationUtils): Response{
+        // récupère l'erreur de connexion s'il y en a une
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // dernier nom d'utilisateur entré par l'utilisateur
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render( 'user/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error
+        ]);
     }
     /**
      * @Route("/logout", name="user_logout")

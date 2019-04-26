@@ -33,7 +33,7 @@
 
                 <div class="">
                     <i class="fas fa-map-marker-alt"></i>
-                    {{ project.place.name ~ ' ' ~  project.place.city }}
+                    {{ project.fablab.name|default('undefined') ~ ' ' ~  project.fablab.address|default('undefined')}}
                 </div>
 
                 <div class="">
@@ -47,12 +47,12 @@
                 </div>
 
                 <div class="">
-                    <a href="{{ asset('uploads/projects/' ~ product.picture) }}">Regarder le projet</a>
+                    <a href="{{ asset('uploads/projects/' ~ project.picture) }}">Regarder le projet</a>
                 </div>
 
                 <div class="">
                     <i class="fas fa-user"></i>
-                    {{ project.owner.username ~ ' - ' ~ project.owner.email }}
+                    {{ project.user.username ~ ' - ' ~ project.user.email }}
                 </div>
             </div>
         </div>

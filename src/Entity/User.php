@@ -2,15 +2,25 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(
+ * fields= {"email"},
+ * message= "L'email que vous avez indiqué est déjà utilisé !")
+ * @UniqueEntity(
+ * fields= {"username"},
+ * message= "Le nom d'utilisateur que vous avez indiqué est déjà utilisé !"
+ * )
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -26,28 +36,25 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email()
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères")
      */
     private $password;
+
+    /**
+     * @Assert\EqualTo(propertyPath="password", message="Votre mot de passe est différent d'un champ à l'autre.")
+     */
+    public $confirmpassword;
 
     /**
      * @ORM\Column(type="text")
      */
     private $roles;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $numberprojects;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $numberprojectsrequest;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -126,40 +133,36 @@ class User
         return $this;
     }
 
-    public function getRoles(): ?string
+    public function getConfirmPassword(): ?string
     {
-        return $this->roles;
+        return $this->confirmpassword;
     }
 
-    public function setRoles(string $roles): self
+    public function setConfirmPassword(string $confirmpassword): self
+    {
+        $this->password = $confirmpassword;
+
+        return $this;
+    }
+
+    public function getRoles(): ?array
+    {
+        return array('ROLE_USER');
+    }
+
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
         return $this;
     }
 
-    public function getNumberprojects(): ?int
-    {
-        return $this->numberprojects;
+    public function eraseCredentials() {
+
     }
 
-    public function setNumberprojects(?int $numberprojects): self
-    {
-        $this->numberprojects = $numberprojects;
+    public function getSalt() {
 
-        return $this;
-    }
-
-    public function getNumberprojectsrequest(): ?int
-    {
-        return $this->numberprojectsrequest;
-    }
-
-    public function setNumberprojectsrequest(?int $numberprojectsrequest): self
-    {
-        $this->numberprojectsrequest = $numberprojectsrequest;
-
-        return $this;
     }
 
     public function getCity(): ?string
@@ -198,12 +201,12 @@ class User
         return $this;
     }
 
-    public function getPhonenumber(): ?int
+    public function getPhonenumber(): ?string
     {
         return $this->phonenumber;
     }
 
-    public function setPhonenumber(?int $phonenumber): self
+    public function setPhonenumber(?string $phonenumber): self
     {
         $this->phonenumber = $phonenumber;
 
@@ -260,5 +263,8 @@ class User
         }
 
         return $this;
+    }
+    public function __toString() {
+        return $this->username;
     }
 }

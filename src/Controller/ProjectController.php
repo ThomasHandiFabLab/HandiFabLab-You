@@ -28,7 +28,7 @@ class ProjectController extends AbstractController
     /**
      * @Route("/project/add", name="project_add")
      */
-    public function add( Request $request, ObjectManager $manager, FileUploaderService $fileUploaderService)
+    public function add( Request $request, FileUploaderService $fileUploaderService)
     {
         $project = new Project();
         $form = $this->createForm( ProjectType::class, $project);

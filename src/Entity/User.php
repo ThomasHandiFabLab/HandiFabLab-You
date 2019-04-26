@@ -52,7 +52,7 @@ class User implements UserInterface
     public $confirmpassword;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="array")
      */
     private $roles;
 

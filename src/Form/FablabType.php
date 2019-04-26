@@ -31,8 +31,6 @@ class FablabType extends AbstractType
             ->add('email', null, array(
                 'label' => 'Email'
                 ))
-            ->add('printernumber')
-            ->add('users')
         ;
     }
 

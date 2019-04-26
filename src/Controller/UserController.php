@@ -29,9 +29,9 @@ class UserController extends AbstractController
             $hash = $encoder->encodePassword($user, $user->getPassword());
 
             $user->setPassword($hash);
+            $user->setRoles( array('ROLE_USER') );
 
             $manager->persist($user);
-            $user->setRoles( 'ROLE_USER' );
             $manager->flush();
             return $this->redirectToRoute( 'project_list' );
         }

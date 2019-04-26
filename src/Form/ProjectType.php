@@ -41,13 +41,13 @@ class ProjectType extends AbstractType
                 'label' => 'Prix'
             ))
             ->add('picture', FileType::class, array(
-                'label' => 'Photo éventuelle',
+                'label' => 'Photo',
                 'attr' => array(
                     'placeholder' => "PDF "
                 ),
             ))
             ->add('weight', null, array(
-                'label' => false,
+                'label' => 'Paramètre du projet : -',
                 'attr' => array(
                     'placeholder' => "Poids de l'objet"
                 ),

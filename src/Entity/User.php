@@ -81,15 +81,10 @@ class User implements UserInterface
      */
     private $project;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\FabLab", inversedBy="users")
-     */
-    private $fablab;
 
     public function __construct()
     {
         $this->project = new ArrayCollection();
-        $this->fablab = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -238,32 +233,7 @@ class User implements UserInterface
 
         return $this;
     }
-
-    /**
-     * @return Collection|FabLab[]
-     */
-    public function getFablab(): Collection
-    {
-        return $this->fablab;
-    }
-
-    public function addFablab(FabLab $fablab): self
-    {
-        if (!$this->fablab->contains($fablab)) {
-            $this->fablab[] = $fablab;
-        }
-
-        return $this;
-    }
-
-    public function removeFablab(FabLab $fablab): self
-    {
-        if ($this->fablab->contains($fablab)) {
-            $this->fablab->removeElement($fablab);
-        }
-
-        return $this;
-    }
+    
     public function __toString() {
         return $this->username;
     }

@@ -9,7 +9,7 @@ use App\Service\FileUploaderService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -34,6 +34,34 @@ class ProjectController extends AbstractController
         $form = $this->createForm( ProjectType::class, $project);
         $form->handleRequest($request);
         dump($project);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $project->setCreatedAt(new \DateTime());
+            $project->setEndAt(new \DateTime());
+            $file = $project->getPicture();
+
+            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+            try {
+                $file->move(
+                    $this->getParameter('photos_directory'),
+                    $fileName
+                );  
+            } catch (FileException $e) {
+
+            }
+
+            $product->setPhoto($fileName);
+
+            if ($form->isSumbmitted() && $form->isValid()) {
+                $file = $product->getPhoto();
+                $fileName = $fileUploaderService->upload($file);
+                
+                $product->setPhoto($fileName);
+            }
+
+            return $this->redirect($this->generateUrl('app_project_list'));
+        }
         
         return $this->render( 'project/add.html.twig', array(
             'form' => $form->createView(),

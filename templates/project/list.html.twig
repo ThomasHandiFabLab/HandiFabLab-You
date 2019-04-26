@@ -5,24 +5,12 @@
 {% block body %}
 
 <div class="container text-center">
-    <div id="hiddenbtntri"class="row my-4">
-        <div class="col-4">
-            <a type="button" class="btn btn-outline-warning" href="{{ path('project_list') }}?criteria=date">Par date</a>
-        </div>
-        <div class="col-4">
-            <a type="button" class="btn btn-outline-success" href="{{ path('project_list') }}?criteria=name">Par ordre alphabéthique</a>
-        </div>
-        <div class="col-4">
-            <a type="button" class="btn btn-outline-danger"  href="{{ path('project_list') }}?criteria=price">Par prix</a>
-        </div>
-    </div>
-
-
-    <div class="projects">
+    
+    <div class="projects my-4">
         <div class="row">
             {% for project in projects %}
             <div class="col-md-6 col-lg-4">
-                <div class="card project my-4 shadow">
+                <div class="card project my-3 shadow">
                     <div class="project-picture" style="background-image: url('{{ project.picture }}');">
                         {% if date( project.startAt ) > date() %}
                             <span class="badge badge-pill badge-danger">A venir</span>
@@ -72,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="card-text">{{ project.description|slice(0,140) }}...</p>
+                        <p class="card-text">{{ project.description|slice(0,80) }}...</p>
                         <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche project complète</a>
                     </div>
                 </div>

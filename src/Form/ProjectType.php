@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProjectType extends AbstractType
 {
@@ -17,9 +18,9 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name', null, array(
-                'label' => false,
+                'label' => "Nom du projet",
                 'attr' => array(
-                    'placeholder' => "Nom du projet"
+                    'placeholder' => "Exemple : Joystick 2.0"
                 ),
             ))
             ->add('created_at', null, array(
@@ -27,9 +28,9 @@ class ProjectType extends AbstractType
                 'label' => 'Début demande :'
             ))
             ->add('description', TextareaType::class, array(
-                'label' => false,
+                'label' => "Description",
                 'attr' => array(
-                'placeholder' => "Description"
+                'placeholder' => "Exemple : Ceci est un Joystick adapté spécifiquement pour ..."
                 )
             ))
             ->add('deadline_at', null, array(
@@ -39,8 +40,11 @@ class ProjectType extends AbstractType
             ->add('price', MoneyType::class, array(
                 'label' => 'Prix'
             ))
-            ->add('brochure', FileType::class, array(
-                'label' => 'Photo éventuelle (PDF file)'
+            ->add('picture', FileType::class, array(
+                'label' => 'Photo éventuelle',
+                'attr' => array(
+                    'placeholder' => "PDF"
+                ),
             ))
             ->add('weight', null, array(
                 'label' => false,

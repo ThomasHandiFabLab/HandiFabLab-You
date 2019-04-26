@@ -144,6 +144,10 @@ html, body{
 .shadow{
     box-shadow: 5px 5px 5px rgba(100, 99, 99, 0.253);
 }
+.identifiant{
+    color: rgb(167, 167, 167);
+    padding-top: 0.5rem;
+}
 /*
 SLICK
 */

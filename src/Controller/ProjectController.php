@@ -1,16 +1,17 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Entity\Project;
+use App\Form\ProjectType;
+use App\Service\ProjectService;
+use App\Service\FileUploaderService;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use App\Service\FileUploaderService;
-use App\Service\ProjectService;
-use App\Entity\Project;
-use App\Entity\User;
-use App\Form\ProjectType;
 
 class ProjectController extends AbstractController
 {
@@ -32,8 +33,12 @@ class ProjectController extends AbstractController
         $project = new Project();
         $form = $this->createForm( ProjectType::class, $project);
         $form->handleRequest($request);
+        dump($project);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $project->setCreatedAt(new \Date());
+            $project->setEndAt(null);
+            $project->setFablab($fablab or null);
             // $ file stocke le fichier PDF téléchargé
             /** @var Symfony\Component\HttpFoundation\File\UploaderFile $file */
             $file = $project->getPhoto();
@@ -60,7 +65,8 @@ class ProjectController extends AbstractController
     
                 $product->setPhoto($fileName);
             }
-            
+            dump($project);
+
             // ... force la variable $project ou tout autre travail
 
             return $this->redirect($this->generateUrl('app_project_list'));
@@ -83,7 +89,7 @@ class ProjectController extends AbstractController
     public function new(Request $request, FileUploaderService $fileUploaderService) {
         
     }
-    
+
     /**
      * @Route("/project/{id}", name="project_show", requirements={"id"="\d+"})
      */
@@ -96,12 +102,7 @@ class ProjectController extends AbstractController
             'project' => $project,
         ));
     }
-    /**
-     * @Route("/project/{id}/join", name="project_join", requirements={"id"="\d+"})
-     */
-    public function join( $id ){
-        return new Response( 'Project join' );
-    }
+    
 
 
 }

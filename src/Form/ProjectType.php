@@ -23,7 +23,7 @@ class ProjectType extends AbstractType
                     'placeholder' => "Exemple : Joystick 2.0"
                 ),
             ))
-            ->add('created_at', null, array(
+            ->add('start_at', null, array(
                 'widget' => 'choice',
                 'label' => 'Début demande :'
             ))
@@ -43,7 +43,7 @@ class ProjectType extends AbstractType
             ->add('picture', FileType::class, array(
                 'label' => 'Photo éventuelle',
                 'attr' => array(
-                    'placeholder' => "PDF"
+                    'placeholder' => "PDF "
                 ),
             ))
             ->add('weight', null, array(

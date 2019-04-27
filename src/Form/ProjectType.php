@@ -41,7 +41,7 @@ class ProjectType extends AbstractType
                 'label' => 'Prix'
             ))
             ->add('picture', FileType::class, array(
-                'label' => 'Photo',
+                'label' => 'Picture',
                 'attr' => array(
                     'placeholder' => "PDF "
                 ),

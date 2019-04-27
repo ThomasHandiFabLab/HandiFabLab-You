@@ -79,9 +79,9 @@ class Project
     private $height;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Photo", mappedBy="project", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="project", orphanRemoval=true)
      */
-    private $photos;
+    private $pictures;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="project")
@@ -91,7 +91,7 @@ class Project
 
     public function __construct()
     {
-        $this->photos = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
 
@@ -184,12 +184,12 @@ class Project
         return $this;
     }
 
-    public function getPicture(): ?Image
+    public function getPicture(): ?string
     {
         return $this->picture;
     }
 
-    public function setPicture(Image $picture): self
+    public function setPicture(string $picture): self
     {
         $this->picture = $picture;
 
@@ -246,11 +246,11 @@ class Project
 
 
     /**
-     * @return Collection|Photo[]
+     * @return Collection|Picture[]
      */
-    public function getPhotos(): Collection
+    public function getPictures(): Collection
     {
-        return $this->photos;
+        return $this->pictures;
     }
 
     public function addPhoto(Photo $photo): self

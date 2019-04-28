@@ -41,6 +41,11 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private $lientinker;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $description;
 
     /**
@@ -144,6 +149,18 @@ class Project
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getLientinker(): ?string
+    {
+        return $this->lientinker;
+    }
+
+    public function setLientinker(?string $lientinker): self
+    {
+        $this->lientinker = $lientinker;
 
         return $this;
     }

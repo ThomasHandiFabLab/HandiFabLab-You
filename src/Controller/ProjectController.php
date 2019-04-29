@@ -33,7 +33,6 @@ class ProjectController extends AbstractController
         $project = new Project();
         $form = $this->createForm( ProjectType::class, $project);
         $form->handleRequest($request);
-        dump($project);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $project->setCreatedAt(new \DateTime());

@@ -53,10 +53,10 @@ class FabLab
     private $city;
     /**
      * @Assert\Type(
-     *     type="float",
+     *     type="numeric",
      *     message="Vous devez saisir un code postale valide."
      * )
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $cp;
 

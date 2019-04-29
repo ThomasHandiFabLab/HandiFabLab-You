@@ -150,6 +150,9 @@ html, body{
 .card-description{
     height: 3.5rem;
 }
+.greynav{
+    color: rgb(167, 167, 167);
+}
 /*
 SLICK
 */

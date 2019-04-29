@@ -3,56 +3,38 @@
 {% block title %}{{ project.name }} - {{ parent() }}{% endblock %}
 
 {% block body %}
-<div class="project">
-    <div class="project-landing" style="background-image: url('{{ project.picture }}');">
-        <div class="project-landing__container">
-            {{ project.name }}
-        </div>
-    </div>
-
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-lg-8 p-4">
-                <h2>Description</h2>
-                {{ project.description }}
-
-                <div class="my-4">
-                    <a href="{{ path( 'project_join', { id: project.id } ) }}" class="btn btn-primary btn-lg font-weight-bold">Rejoindre l'événement</a>
-                </div>
+            <div class="col-sm-0 col-lg-7">
+                <iframe width="725" height="453" src="{{ project.lientinker }}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
             </div>
-            <div class="col-sm-12 col-lg-4 bg-dark text-light py-4 project-info">
-                <div class="">
-                    <i class="fas fa-calendar-alt"></i>
-                    {{ project.startAt|date('d/m/Y H:i') }}
-                </div>
+            <div class="row col-sm-12 col-lg-5">
+                <div class="col-sm-12 col-lg-12 bg-dark text-light project-info">
+                    <div class="col-sm-12 col-lg-12 p-4">
+                        {{ project.description }}
+                    </div>
+                    <div class="col-sm-12 col-lg-12 p-1">
+                        <i class="fas fa-calendar-alt"></i>
+                        {{ project.startAt|date('d/m/Y') }}
+                    </div>
 
-                <div class="">
-                    <i class="fas fa-calendar-times"></i>
-                    {{ project.endAt|date('d/m/Y H:i') }}
-                </div>
+                    <div class="col-sm-12 col-lg-12 p-1">
+                        <i class="fas fa-calendar-times"></i>
+                        {{ project.endAt|date('d/m/Y') }}
+                    </div>
 
-                <div class="">
-                    <i class="fas fa-map-marker-alt"></i>
-                    {{ project.fablab.name|default('undefined') ~ ' ' ~  project.fablab.address|default('undefined')}}
-                </div>
+                    <div class="col-sm-12 col-lg-12 p-1">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{ project.fablab_id.name|default('undefined') ~ ' ' ~  project.fablab_id.address|default('undefined')}}
+                    </div>
 
-                <div class="">
-                    <i class="fas fa-euro-sign"></i>
-                    {{ ( project.price ) ? project.price : 'Gratuit' }}
-                </div>
+                    <div class="col-sm-12 col-lg-12 p-1">
+                        {{ ( project.price ) ? project.price : 'Gratuit' }}
+                    </div>
 
-                <div class="">
-                    <i class="fas fa-users"></i>
-                    {{ project.capacity ?? 'Ilimité' }}
-                </div>
-
-                <div class="">
-                    <a href="{{ asset('uploads/projects/' ~ project.picture) }}">Regarder le projet</a>
-                </div>
-
-                <div class="">
-                    <i class="fas fa-user"></i>
-                    {{ project.user.username ~ ' - ' ~ project.user.email }}
+                    <div class="col-sm-12 col-lg-12 p-1">
+                        <button type="button" class="btn btn-primary" href="https://www.tinkercad.com/things/2Dg7miiV0A0?utm_source=externalsite&utm_medium=embedver1&utm_campaign=embed">Télécharger</button>
+                    </div>
                 </div>
             </div>
         </div>

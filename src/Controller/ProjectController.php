@@ -33,7 +33,6 @@ class ProjectController extends AbstractController
         $project = new Project();
         $form = $this->createForm( ProjectType::class, $project);
         $form->handleRequest($request);
-        dump($project);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $project->setCreatedAt(new \DateTime());
@@ -44,20 +43,20 @@ class ProjectController extends AbstractController
 
             try {
                 $file->move(
-                    $this->getParameter('photos_directory'),
+                    $this->getParameter('pictures_directory'),
                     $fileName
                 );  
             } catch (FileException $e) {
 
             }
 
-            $product->setPhoto($fileName);
+            $product->setPicture($fileName);
 
             if ($form->isSumbmitted() && $form->isValid()) {
-                $file = $product->getPhoto();
+                $file = $product->getPicture();
                 $fileName = $fileUploaderService->upload($file);
                 
-                $product->setPhoto($fileName);
+                $product->setPicture($fileName);
             }
 
             return $this->redirect($this->generateUrl('app_project_list'));

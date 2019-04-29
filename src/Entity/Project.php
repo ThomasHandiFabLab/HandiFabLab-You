@@ -41,6 +41,11 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private $lientinker;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $description;
 
     /**
@@ -79,9 +84,9 @@ class Project
     private $height;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Photo", mappedBy="project", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="project", orphanRemoval=true)
      */
-    private $photos;
+    private $pictures;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="project")
@@ -91,7 +96,7 @@ class Project
 
     public function __construct()
     {
-        $this->photos = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
 
@@ -148,6 +153,18 @@ class Project
         return $this;
     }
 
+    public function getLientinker(): ?string
+    {
+        return $this->lientinker;
+    }
+
+    public function setLientinker(?string $lientinker): self
+    {
+        $this->lientinker = $lientinker;
+
+        return $this;
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -184,12 +201,12 @@ class Project
         return $this;
     }
 
-    public function getPicture(): ?Image
+    public function getPicture(): ?string
     {
         return $this->picture;
     }
 
-    public function setPicture(Image $picture): self
+    public function setPicture(string $picture): self
     {
         $this->picture = $picture;
 
@@ -246,11 +263,11 @@ class Project
 
 
     /**
-     * @return Collection|Photo[]
+     * @return Collection|Picture[]
      */
-    public function getPhotos(): Collection
+    public function getPictures(): Collection
     {
-        return $this->photos;
+        return $this->pictures;
     }
 
     public function addPhoto(Photo $photo): self

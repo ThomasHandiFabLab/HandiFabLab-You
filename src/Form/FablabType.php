@@ -24,7 +24,6 @@ class FablabType extends AbstractType
             ->add('cp', null, array(
                 'label' => 'Code postal'
                 ))
-            ->add('nbProject')
             ->add('phonenumber', null, array(
                 'label' => 'Telephone'
                 ))

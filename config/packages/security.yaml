@@ -23,8 +23,14 @@ security:
                 check_path: user_login
 
             logout:
-                path: user_logout
+                path: /logout
                 target: project_list
+
+                
+    access_control:
+        - { path: ^/fablab/add, roles: ROLE_USER }
+        
+        - { path: ^/project/add, roles: ROLE_USER }
             # activate different ways to authenticate
 
             # http_basic: true

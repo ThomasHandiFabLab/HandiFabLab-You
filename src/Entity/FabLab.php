@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FabLabRepository")
@@ -19,11 +20,25 @@ class FabLab
     private $id;
 
     /**
+     * @Assert\NotBlank( message = "Vous devez saisir un nom." )
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 33,
+     *      minMessage = "Votre nom doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom doit contenir au maximum {{ limit }} caractères"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Assert\NotBlank( message = "Vous devez saisir une adresse." )
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 255,
+     *      minMessage = "Votre adresse doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre adresse doit contenir au maximum {{ limit }} caractères"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $address;
@@ -31,10 +46,17 @@ class FabLab
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $city;
-
+    private $lienaddress;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+    /**
+     * @Assert\Type(
+     *     type="numeric",
+     *     message="Vous devez saisir un code postale valide."
+     * )
+     * @ORM\Column(type="string", nullable=true)
      */
     private $cp;
 
@@ -44,12 +66,22 @@ class FabLab
     private $nbProject;
 
     /**
+     * @Assert\NotBlank( message = "Vous devez saisir un numéro de téléphone." )
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 12,
+     *      minMessage = "Votre adresse doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre adresse doit contenir au maximum {{ limit }} caractères contenant +33"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $phonenumber;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "L'email '{{ value }}' n'est pas valide.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
@@ -94,6 +126,18 @@ class FabLab
     public function setAddress(string $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getLienaddress(): ?string
+    {
+        return $this->lienaddress;
+    }
+
+    public function setLienaddress(string $lienaddress): self
+    {
+        $this->lienaddress = $lienaddress;
 
         return $this;
     }

@@ -9,7 +9,7 @@ use App\Service\FileUploaderService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -33,41 +33,31 @@ class ProjectController extends AbstractController
         $project = new Project();
         $form = $this->createForm( ProjectType::class, $project);
         $form->handleRequest($request);
-        dump($project);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $project->setCreatedAt(new \Date());
-            $project->setEndAt(null);
-            $project->setFablab($fablab or null);
-            // $ file stocke le fichier PDF téléchargé
-            /** @var Symfony\Component\HttpFoundation\File\UploaderFile $file */
-            $file = $project->getPhoto();
+            $project->setCreatedAt(new \DateTime());
+            $project->setEndAt(new \DateTime());
+            $file = $project->getPicture();
 
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
-            // Déplacez le fichier dans le répertoire où sont stockées les images.
             try {
                 $file->move(
-                    $this->getParameter('photos_directory'),
+                    $this->getParameter('pictures_directory'),
                     $fileName
                 );  
             } catch (FileException $e) {
-                // ... gérer l'exception si quelque chose se passe pendant le téléchargement du fichier.
-            }
-            // met à jour la propriété 'photo' pour stocker le nom du fichier PDF au lieu de son contenu. 
-            $product->setPhoto($fileName);
 
-            // Utilisation du service d'Upload
+            }
+
+            $product->setPicture($fileName);
 
             if ($form->isSumbmitted() && $form->isValid()) {
-                $file = $product->getPhoto();
+                $file = $product->getPicture();
                 $fileName = $fileUploaderService->upload($file);
-    
-                $product->setPhoto($fileName);
+                
+                $product->setPicture($fileName);
             }
-            dump($project);
-
-            // ... force la variable $project ou tout autre travail
 
             return $this->redirect($this->generateUrl('app_project_list'));
         }

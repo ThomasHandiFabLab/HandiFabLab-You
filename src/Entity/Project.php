@@ -44,6 +44,11 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private $lientinker;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $description;
 
     /**
@@ -82,29 +87,19 @@ class Project
     private $height;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="projects")
+     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="project", orphanRemoval=true)
      */
-    private $Categories;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Photo", mappedBy="project", orphanRemoval=true)
-     */
-    private $photos;
+    private $pictures;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="project")
      */
     private $users;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FabLab", inversedBy="projects")
-     */
-    private $fablab;
 
     public function __construct()
     {
-        $this->Categories = new ArrayCollection();
-        $this->photos = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
 
@@ -157,6 +152,18 @@ class Project
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getLientinker(): ?string
+    {
+        return $this->lientinker;
+    }
+
+    public function setLientinker(?string $lientinker): self
+    {
+        $this->lientinker = $lientinker;
 
         return $this;
     }
@@ -257,38 +264,13 @@ class Project
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->Categories;
-    }
-
-    public function addCategory(Category $category): self
-    {
-        if (!$this->Categories->contains($category)) {
-            $this->Categories[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        if ($this->Categories->contains($category)) {
-            $this->Categories->removeElement($category);
-        }
-
-        return $this;
-    }
 
     /**
-     * @return Collection|Photo[]
+     * @return Collection|Picture[]
      */
-    public function getPhotos(): Collection
+    public function getPictures(): Collection
     {
-        return $this->photos;
+        return $this->pictures;
     }
 
     public function addPhoto(Photo $photo): self
@@ -338,18 +320,6 @@ class Project
             $this->users->removeElement($user);
             $user->removeProject($this);
         }
-
-        return $this;
-    }
-
-    public function getFablab(): ?FabLab
-    {
-        return $this->fablab;
-    }
-
-    public function setFablab(?FabLab $fablab): self
-    {
-        $this->fablab = $fablab;
 
         return $this;
     }

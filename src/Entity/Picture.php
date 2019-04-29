@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PhotoRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PictureRepository")
  */
-class Photo
+class Picture
 {
     /**
      * @ORM\Id()
@@ -23,7 +23,7 @@ class Photo
     private $picture;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="photos")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="Pictures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $project;

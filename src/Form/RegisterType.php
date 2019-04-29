@@ -39,7 +39,6 @@ class RegisterType extends AbstractType
             ->add('phonenumber', null, array(
                 'label' => "Téléphone",
             ))
-            ->add('fablab')
         ;
     }
 

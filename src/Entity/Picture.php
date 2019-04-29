@@ -33,12 +33,12 @@ class Picture
         return $this->id;
     }
 
-    public function getPicture(): ?Image
+    public function getPicture(): ?string
     {
         return $this->picture;
     }
 
-    public function setPicture(Image $picture): self
+    public function setPicture(string $picture): self
     {
         $this->picture = $picture;
 

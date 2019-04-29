@@ -13,26 +13,44 @@ class FablabType extends AbstractType
     {
         $builder
             ->add('name', null, array(
-                'label' => 'Nom'
-                ))
+                'label' => 'Nom',
+                'attr' => array( 
+                    'novalidate' => 'novalidate'
+                )
+            ))
             ->add('address', null, array(
-                'label' => 'Adresse'
-                ))
+                'label' => 'Adresse',
+                'attr' => array( 
+                    'novalidate' => 'novalidate'
+                )
+            ))
             ->add('city', null, array(
-                'label' => 'Ville'
-                ))
+                'label' => 'Ville',
+                'attr' => array( 
+                    'novalidate' => 'novalidate'
+                )
+            ))
             ->add('cp', null, array(
-                'label' => 'Code postal'
-                ))
+                'label' => 'Code postal',
+                'attr' => array( 
+                    'novalidate' => 'novalidate'
+                )
+            ))
             ->add('phonenumber', null, array(
-                'label' => 'Telephone',
-                'attr' => array(
+
+                'label' => 'Téléphone',
+                'attr' => array( 
+                    'novalidate' => 'novalidate',
                     'placeholder' => '+33'
                 )
-                ))
+            ))
+
             ->add('email', null, array(
-                'label' => 'Email'
-                ))
+                'label' => 'Email',
+                'attr' => array( 
+                    'novalidate' => 'novalidate'
+                )
+            ))
         ;
     }
 

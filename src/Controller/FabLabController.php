@@ -30,12 +30,11 @@ class FabLabController extends AbstractController
         $form = $this->createForm( FablabType::class, $fablab );
         $form->handleRequest($request);
         if( $form->isSubmitted() && $form->isValid() ){
-            $project->setOwner( $this->getUser() );
             $em = $this->getDoctrine()->getManager();
-            $em->persist( $project );
+            $em->persist( $fablab );
             $em->flush();
-            return $this->redirectToRoute( 'project_show', array(
-                'id' => $project->getId(),
+            return $this->redirectToRoute( 'project_list', array(
+                'id' => $fablab->getId(),
         ));
         }        
         return $this->render( 'fablab/add.html.twig', array(

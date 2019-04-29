@@ -35,9 +35,12 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $project->setCreatedAt(new \DateTime());
             $project->setEndAt(new \DateTime());
-            $file = $project->getPicture();
+            
+            // $file stocke le fichier PDF téléchargé
+            $file = $form->get('picture')->getData();
 
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
@@ -46,20 +49,20 @@ class ProjectController extends AbstractController
                     $this->getParameter('pictures_directory'),
                     $fileName
                 );  
-            } catch (FileException $e) {
-
+            } catch (FileException $e) {  
+            // gérer l'exception si quelque chose se passe pendant le téléchargement du fichier
             }
 
-            $product->setPicture($fileName);
+            // met à jour la propriété 'brochure' pour stocker le nom du fichier PDF au lieu de son contenu
+            $project->setPicture($fileName);
 
-            if ($form->isSumbmitted() && $form->isValid()) {
-                $file = $product->getPicture();
-                $fileName = $fileUploaderService->upload($file);
-                
-                $product->setPicture($fileName);
-            }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist( $project );
+            $em->flush();
 
-            return $this->redirect($this->generateUrl('app_project_list'));
+            return $this->redirectToRoute( 'project_list', array(
+                'id' => $project->getId(),
+        ));
         }
         
         return $this->render( 'project/add.html.twig', array(

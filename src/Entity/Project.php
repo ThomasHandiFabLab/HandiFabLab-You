@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
@@ -20,21 +21,33 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank( message = "Vous devez saisir un nom" )
+     * @Assert\Length(min ="8", minMessage="Votre nom doit faire minimum {{ limit }} caractères")
      */
     private $name;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank( message = "Vous devez saisir une date de début" )
+     * @Assert\GreaterThan("today", message="La date de début doit être dans le futur")
+     * 
      */
     private $start_at;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank( message = "Vous devez saisir une date de fin" )
+     * @Assert\Expression(
+     *     "this.getEndAt() > this.getStartAt()",
+     *     message="La date de fin doit être supérieur à la date de début")
      */
     private $end_at;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank( message = "Vous devez saisir une date de début" )
+     * @Assert\GreaterThan("today", message="La date de début doit être dans le futur")
+     * 
      */
     private $created_at;
 
@@ -45,6 +58,11 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *  @Assert\Length(
+     *      min = 20,
+     *      max = 200,
+     *      minMessage = "Votre description doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre description doit contenir au maximum {{ limit }} caractères")
      */
     private $description;
 
@@ -55,6 +73,8 @@ class Project
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(
+     *     type="float", message="Vous devez saisir un prix valide")
      */
     private $price;
 

@@ -9,7 +9,7 @@
             <div class="col-12 col-sm-6 d-flex justify-content-around">
                 <div class="card my-4 mx-2 shadow" style="width: 50rem;">
 
-                    <iframe src="{{ fablab.lienaddress }}" width="432" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="{{ fablab.lienaddress }}" frameborder="0" style="border:0" allowfullscreen></iframe>
 
                     <div class="card-body">
                         <h5 class="card-title text-center" style="font-size: 2.5rem;">{{ fablab.name }}</h5>
@@ -19,7 +19,7 @@
                             <div class="col-12">
                                 <li class="list-group-item"><i class="fas fa-city"></i> {{ fablab.address }} à {{ fablab.city }}</li>
 
-                                <li class="list-group-item"><i class="fas fa-tasks"></i> projet effectué {{ fablab.nbproject }}</li>
+                                <li class="list-group-item"><i class="fas fa-tasks"></i> projet(s) réalisé(s) {{ fablab.nbproject|default('inconnu') }}</li>
                             </div>
                             <div class="col-12">
                                 <li class="list-group-item"><i class="fas fa-mobile-alt"></i> {{ fablab.phonenumber }}</li>

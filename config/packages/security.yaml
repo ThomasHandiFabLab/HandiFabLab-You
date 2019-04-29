@@ -28,8 +28,9 @@ security:
 
                 
     access_control:
-        - { path: ^/fablab/add, roles: ROLE_USER }
+        - { path: ^/fablab/add, roles: ROLE_ADMIN }
         
+        - { path: ^/project/add, roles: ROLE_ADMIN }
         - { path: ^/project/add, roles: ROLE_USER }
             # activate different ways to authenticate
 

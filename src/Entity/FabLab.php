@@ -44,10 +44,11 @@ class FabLab
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $lienaddress;
     /**
+     * @Assert\NotBlank( message = "Vous devez saisir une ville." )
      * @ORM\Column(type="string", length=255)
      */
     private $city;
@@ -56,22 +57,28 @@ class FabLab
      *     type="numeric",
      *     message="Vous devez saisir un code postale valide."
      * )
+     * @Assert\Length(
+     *     min = 5,
+     *     max = 5,
+     *     minMessage = "Votre code postale doit contenir au moins {{ limit }} caractères",
+     *     maxMessage = "Votre code postale doit contenir au maximum {{ limit }} caractères"
+     * )
      * @ORM\Column(type="string", nullable=true)
      */
     private $cp;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $nbProject;
 
     /**
      * @Assert\NotBlank( message = "Vous devez saisir un numéro de téléphone." )
      * @Assert\Length(
-     *      min = 10,
-     *      max = 12,
-     *      minMessage = "Votre adresse doit contenir au moins {{ limit }} caractères",
-     *      maxMessage = "Votre adresse doit contenir au maximum {{ limit }} caractères contenant +33"
+     *      min = 9,
+     *      max = 9,
+     *      minMessage = "Votre adresse doit contenir {{ limit }} caractères. Pas moins. En effet on concidère qu'il y a + 33 devant le numéro.",
+     *      maxMessage = "Votre adresse doit contenir {{ limit }} caractères. Pas plus. En effet on concidère qu'il y a + 33 devant le numéro."
      * )
      * @ORM\Column(type="string", length=255)
      */
@@ -82,6 +89,7 @@ class FabLab
      *     message = "L'email '{{ value }}' n'est pas valide.",
      *     checkMX = true
      * )
+     * @ORM\Column(type="string", length=255)
      */
     private $email;
 

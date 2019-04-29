@@ -25,7 +25,10 @@ class FablabType extends AbstractType
                 'label' => 'Code postal'
                 ))
             ->add('phonenumber', null, array(
-                'label' => 'Telephone'
+                'label' => 'Telephone',
+                'attr' => array(
+                    'placeholder' => '+33'
+                )
                 ))
             ->add('email', null, array(
                 'label' => 'Email'

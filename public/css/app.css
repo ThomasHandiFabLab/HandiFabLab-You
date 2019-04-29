@@ -138,8 +138,7 @@ html, body{
 }
 
 .midform{
-    padding-top: 200px !important;
-    padding-bottom: 200px;
+    padding-top: 10rem;
 }
 .shadow{
     box-shadow: 5px 5px 5px rgba(100, 99, 99, 0.253);
@@ -148,32 +147,41 @@ html, body{
     color: rgb(167, 167, 167);
     padding-top: 0.5rem;
 }
+.card-description{
+    height: 3.5rem;
+}
 /*
 SLICK
 */
 
 .circle{
-    width: 75%;
-    height: 500px;
+    width: 10rem;
     border-radius: 15%;
 }
-
+#img1{
+    background-image: url('../images/LeKevin16.png');
+    width: 100%;
+    height: 100rem;
+}
+/*
+HOVER
+*/
 
 .hoverP{
     color:black;
-    text-shadow:0 -1px 0 black;                
+    text-shadow:0 -1px 0 black;               
 }
 .hoverP:hover,.hoverP:focus{
     background:rgba(0,0,0,.4);
     box-shadow:0 1px 0 rgba(255,255,255,.4);
-    z-index: 5;   
+    z-index: 5;  
 }
 .hoverP span{
     position:absolute;
     color:#09c;
     background:rgba(0,0,0,.9);
-    padding:20px;
-    border-radius:3px;
+    padding:2rem;
+    right: -125%;
     box-shadow:0 0 2px rgba(0,0,0,.5);
     transform:scale(0) rotate(-12deg); 
     transition:all .25s;
@@ -184,5 +192,8 @@ SLICK
     transform:scale(1) rotate(0);
     opacity:1;  
     z-index: 5;
-
+  
+}
+.hoverpoid{
+    width:20rem;
 }

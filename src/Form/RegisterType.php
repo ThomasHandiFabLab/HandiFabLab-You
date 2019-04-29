@@ -38,8 +38,11 @@ class RegisterType extends AbstractType
             ))
             ->add('phonenumber', null, array(
                 'label' => "Téléphone",
+                'attr' => array(
+                    'placeholder' => '+33'
+                )
             ))
-        ;
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

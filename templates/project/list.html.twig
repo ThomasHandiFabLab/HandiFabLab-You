@@ -21,7 +21,7 @@
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ project.name }}</h5>
+                        <h5 class="card-title">{{ project.name|slice(0,25) }}</h5>
                         <div class="project-info">
                             <div class="row">
                                 <div class="col-sm-6 col-12">
@@ -60,7 +60,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="card-text">{{ project.description|slice(0,80) }}...</p>
+                        <p class="card-text card-description">{{ project.description|slice(0,80) }}...</p>
+                        
                         <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche project complète</a>
                     </div>
                 </div>

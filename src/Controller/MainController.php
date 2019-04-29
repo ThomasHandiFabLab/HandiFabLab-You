@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Services\ProjectService;
 
+
 class MainController extends AbstractController
 {
     /**
@@ -17,4 +18,5 @@ class MainController extends AbstractController
     {
         return $this->render('main/index.html.twig');
     }
+
 }

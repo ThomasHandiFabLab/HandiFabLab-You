@@ -21,6 +21,11 @@ class ProjectController extends AbstractController
     public function list( Request $request, ProjectService $projectService ){
         $query = $request->query->get( 'query' );
         $sort = $request->query->get( 'sort', 'id' );
+        if( !empty( $query ) ){
+            $projects = $projectService->search( $query, $sort );
+        }else{
+            $projects = $projectService->getAll( $sort );
+        }
         return $this->render( 'project/list.html.twig', array(
             'projects' => $projectService->getAll(),
         ));

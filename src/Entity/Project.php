@@ -22,7 +22,7 @@ class Project
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank( message = "Vous devez saisir un nom" )
-     * @Assert\Length(min ="8", minMessage="Votre nom doit faire minimum {{ limit }} caractères")
+     * @Assert\Length(min ="2", minMessage="Votre nom doit faire minimum {{ limit }} caractères")
      */
     private $name;
 
@@ -67,7 +67,11 @@ class Project
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File(
+     *     maxSize = "1024k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf", "application/jpg", "application/png", "application/jpeg"},
+     *     mimeTypesMessage = "Please upload a valid PDF")
      */
     private $picture;
 

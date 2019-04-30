@@ -36,8 +36,8 @@ class ProjectController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $project->setStartAt(new \DateTime());
             $project->setCreatedAt(new \DateTime());
-            $project->setEndAt(new \DateTime());
             
             // $file stocke le fichier PDF téléchargé
             $file = $form->get('picture')->getData();

@@ -12,12 +12,10 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card project my-3 shadow">
                     <div class="project-picture" style="background-image: url('{{ project.picture }}');">
-                        {% if date( project.startAt ) > date() %}
-                            <span class="badge badge-pill badge-danger">A venir</span>
-                        {% elseif date( project.endAt ) < date() %}
-                            <span class="badge badge-pill badge-success">Réalisé</span>
+                        {% if date() < date( project.deadlineAt ) %}
+                            <span class="badge badge-pill badge-warning">A venir</span>
                         {% else %}
-                            <span class="badge badge-pill badge-warning">En cours</span>
+                            <span class="badge badge-pill badge-success">Réalisé</span>
                         {% endif %}
                     </div>
                     <div class="card-body">

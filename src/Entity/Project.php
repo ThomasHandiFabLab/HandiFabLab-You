@@ -27,27 +27,14 @@ class Project
     private $name;
 
     /**
-     * @ORM\Column(type="date")
-     * @Assert\NotBlank( message = "Vous devez saisir une date de début" )
-     * @Assert\GreaterThan("today", message="La date de début doit être dans le futur")
-     * 
+     * @ORM\Column(type="date", nullable=true)
+     * @Assert\GreaterThan("today", message="La date de début doit être dans le futur.")
      */
     private $start_at;
 
     /**
-     * @ORM\Column(type="date")
-     * @Assert\NotBlank( message = "Vous devez saisir une date de fin" )
-     * @Assert\Expression(
-     *     "this.getEndAt() > this.getStartAt()",
-     *     message="La date de fin doit être supérieur à la date de début")
-     */
-    private $end_at;
-
-    /**
-     * @ORM\Column(type="date")
-     * @Assert\NotBlank( message = "Vous devez saisir une date de début" )
-     * @Assert\GreaterThan("today", message="La date de début doit être dans le futur")
-     * 
+     * @ORM\Column(type="date", nullable=true)
+     * @Assert\GreaterThan("today", message="La date de début doit être dans le futur.")
      */
     private $created_at;
 
@@ -67,7 +54,8 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date")
+     * @Assert\GreaterThan("today")
      */
     private $deadline_at;
 
@@ -145,18 +133,6 @@ class Project
     public function setStartAt(\DateTimeInterface $start_at): self
     {
         $this->start_at = $start_at;
-
-        return $this;
-    }
-
-    public function getEndAt(): ?\DateTimeInterface
-    {
-        return $this->end_at;
-    }
-
-    public function setEndAt(\DateTimeInterface $end_at): self
-    {
-        $this->end_at = $end_at;
 
         return $this;
     }

@@ -30,17 +30,22 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 3, minMessage="Votre '{{ value }}' doit faire minimum 3 caractères")
      */
     private $username;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
      */
     private $email;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères")
      */
@@ -57,16 +62,19 @@ class User implements UserInterface
     private $roles;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
      */
     private $city;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="integer")
      */
     private $cp;

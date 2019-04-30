@@ -23,10 +23,6 @@ class ProjectType extends AbstractType
                     'placeholder' => "Exemple : Joystick 2.0"
                 ),
             ))
-            ->add('start_at', null, array(
-                'widget' => 'choice',
-                'label' => 'Début demande :'
-            ))
             ->add('description', TextareaType::class, array(
                 'label' => "Description",
                 'attr' => array(
@@ -36,9 +32,6 @@ class ProjectType extends AbstractType
             ->add('deadline_at', null, array(
                 'widget' => 'choice',
                 'label' => 'Au plus tard :'
-            ))
-            ->add('price', MoneyType::class, array(
-                'label' => 'Prix'
             ))
             ->add('picture', FileType::class, array(
                 'label' => 'Photo',

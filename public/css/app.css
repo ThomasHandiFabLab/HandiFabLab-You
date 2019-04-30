@@ -173,6 +173,10 @@ html, body{
 .card-header{
     background-color: white;
 }
+.project-picture{
+    background-size: cover;
+    height: 10rem;
+}
 /*
 SLICK
 */

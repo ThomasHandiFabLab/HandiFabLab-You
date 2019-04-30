@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
+use App\Service\ProjectService;
+use App\Service\FileUploaderService;
 use Symfony\Component\HttpFoundation\Request;
-use App\Services\ProjectService;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class MainController extends AbstractController
@@ -14,9 +14,13 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="main_index")
      */
-    public function index()
+    public function index( Request $request, ProjectService $projectService )
     {
-        return $this->render('main/index.html.twig');
+            $query = $request->query->get( 'query' );
+            $sort = $request->query->get( 'sort', 'id' );
+        return $this->render('main/index.html.twig', array(
+            'projects' => $projectService->getAll(),
+        ));
     }
 
 }

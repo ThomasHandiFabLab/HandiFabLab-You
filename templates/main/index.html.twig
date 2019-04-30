@@ -13,16 +13,11 @@
         <div class="container">
             <div class="my-4">
                 <div class="carousel">
+                    {% for project in projects %}
                     
-                    <div id="img1" class="text-center"><a class="navbar-brand carrousel" href=""><img class="circle" src="{{ asset('images/LeKevin16.png') }}" alt="image de projet" /></a>   </div>
+                    <div class="project-picture" style="background-image: url('{{ project.picture }}');"><a class="navbar-brand carrousel" ></a></div>
                     
-                    <div id="img2" class="text-center"><a class="navbar-brand carrousel" href=""><img class="circle" src="{{ asset('images/Portebouteille.png') }}" alt="image de projet" /></a>   </div>
-                
-                    <div id="img3" class="text-center"><a class="navbar-brand carrousel" href=""><img class="circle" src="{{ asset('images/APFFranceHandicap.png') }}" alt="image de projet" /></a>   </div>
-                
-                    <div id="img4" class="text-center"><a class="navbar-brand carrousel" href=""><img class="circle" src="{{ asset('images/tridentbaopao.png') }}" alt="image de projet" /></a>   </div>
-                
-                    <div id="img5" class="text-center"><a class="navbar-brand carrousel" href=""><img class="circle" src="{{ asset('images/UnoForAveugle.png') }}" alt="image de projet" /></a>   </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

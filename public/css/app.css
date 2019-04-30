@@ -175,7 +175,9 @@ html, body{
 }
 .project-picture{
     background-size: cover;
+    background-position: center;
     height: 10rem;
+    border-radius: 25%;
 }
 /*
 SLICK

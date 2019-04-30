@@ -12,10 +12,12 @@
         
         <div class="container">
             <div class="my-4">
-                <div class="carousel">
+                <div class="carousel ifram-show">
                     {% for project in projects %}
                     
-                    <div class="project-picture" style="background-image: url('{{ project.picture }}');"><a class="navbar-brand carrousel" ></a></div>
+                    <a class="navbar-brand carrousel" href="{{ path( 'project_show', { id: project.id } ) }}">
+                        <div class="project-picture" style="background-image: url('{{ project.picture }}');"></div>
+                    </a>
                     
                     {% endfor %}
                 </div>

@@ -18,13 +18,13 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name', null, array(
-                'label' => "Nom du projet",
+                'label' => "Nom du projet :",
                 'attr' => array(
                     'placeholder' => "Exemple : Joystick 2.0"
                 ),
             ))
             ->add('description', TextareaType::class, array(
-                'label' => "Description",
+                'label' => "Description :",
                 'attr' => array(
                 'placeholder' => "Exemple : Ceci est un Joystick adapté spécifiquement pour ..."
                 )
@@ -34,33 +34,33 @@ class ProjectType extends AbstractType
                 'label' => 'Au plus tard :'
             ))
             ->add('picture', FileType::class, array(
-                'label' => 'Photo',
+                'label' => 'Photo :',
                 'attr' => array(
-                    'placeholder' => "PDF "
+                    'placeholder' => "Photo format : PDF, JPG, PNG, JPEG :"
                 ),
             ))
             ->add('weight', null, array(
-                'label' => 'Paramètre du projet : -',
+                'label' => 'Paramètre du projet :',
                 'attr' => array(
-                    'placeholder' => "Poids de l'objet"
+                    'placeholder' => "Poids de l'objet en gramme."
                 ),
             ))
             ->add('width', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Largeur de l'objet"
+                    'placeholder' => "Largeur de l'objet en centimètre."
                 ),
             ))
             ->add('length', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Longueur de l'objet"
+                    'placeholder' => "Longueur de l'objet en centimètre."
                 ),
             ))
             ->add('height', null, array(
                 'label' => false,
                 'attr' => array(
-                    'placeholder' => "Hauteur de l'objet"
+                    'placeholder' => "Hauteur de l'objet en centimètre."
                 ),
             ))
             ;

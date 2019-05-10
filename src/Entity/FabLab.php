@@ -49,7 +49,6 @@ class FabLab
     private $lienaddress;
     /**
      * @Assert\NotBlank( message = "Vous devez saisir une ville." )
-     * @ORM\Column(type="string", length=255)
      */
     private $city;
     /**

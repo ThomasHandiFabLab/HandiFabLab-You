@@ -69,9 +69,9 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\File(
-     *     maxSize = "1024k",
-     *     mimeTypes = {"application/pdf", "application/x-pdf", "application/jpg", "application/png", "application/jpeg"},
-     *     mimeTypesMessage = "Please upload a valid PDF")
+     *     maxSize = "4000k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf", "image/jpg", "image/png", "image/jpeg"},
+     *     mimeTypesMessage = "Vous n'avez pas ajouter de fichier.")
      */
     private $picture;
 

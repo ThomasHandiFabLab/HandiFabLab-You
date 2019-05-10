@@ -37,7 +37,6 @@ class FablabType extends AbstractType
                 )
             ))
             ->add('phonenumber', null, array(
-
                 'label' => 'Téléphone',
                 'attr' => array( 
                     'novalidate' => 'novalidate',

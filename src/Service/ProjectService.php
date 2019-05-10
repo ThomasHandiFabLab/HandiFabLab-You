@@ -8,10 +8,12 @@ class ProjectService{
     private $om;
     private $repository;
 
+    
     public function __construct( ObjectManager $om ){
         $this->om = $om;
         $this->repository = $om->getRepository( Project::class );
     }
+    // Inutile, en cours :
     public function getAll( $criteria = null){
         if ($criteria=='date') {
             return $this->repository -> triDate();
@@ -23,6 +25,7 @@ class ProjectService{
         return $this->repository->findAll();
         }
     }
+    
     public function get( $id ){
         return $this->repository->find( $id );
     }

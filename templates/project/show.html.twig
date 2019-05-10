@@ -6,9 +6,9 @@
     <div class="container">
         <div class="row my-2">
             <div class="col-lg-8 col-sm-12">
-                <iframe class="ifram-show" width="725" height="455" src="{{ project.lientinker }}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-                <iframe class="ifram-show-sm d-lg-none" width="600" height="455" src="{{ project.lientinker }}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-                <iframe class="d-sm-none" width="450" height="455" src="{{ project.lientinker }}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                <iframe title="visuel du projet : {{ project.name }}" class="ifram-show" width="725" height="455" src="{{ project.lientinker }}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                <iframe title="visuel du projet : {{ project.name }}" class="ifram-show-sm d-lg-none" width="600" height="455" src="{{ project.lientinker }}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                <iframe title="visuel du projet : {{ project.name }}" class="d-sm-none" width="450" height="455" src="{{ project.lientinker }}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
             </div>
 
             <div class="card col-lg-4 col-sm-12 shadow" style="width: 20rem;">
@@ -30,4 +30,5 @@
     </div>
 
 </div>
+{% block footer %}{% endblock %}
 {% endblock %}

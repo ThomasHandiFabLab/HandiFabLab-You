@@ -17,6 +17,7 @@
                     
                     <a class="navbar-brand carrousel" href="{{ path( 'project_show', { id: project.id } ) }}">
                         <div class="project-picture" style="background-image: url('{{ project.picture }}');"></div>
+                        <span class="sr-only">Projet : {{ project.name }}</span>
                     </a>
                     
                     {% endfor %}

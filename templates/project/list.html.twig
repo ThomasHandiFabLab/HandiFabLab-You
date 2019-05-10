@@ -50,7 +50,7 @@
                                             <span>
                                                 <p class="hoverP">                                                
                                                     {{ ( project.weight ) ? project.weight : 'inconnu' }} 
-                                                    <span class="hoverpoid">Le poid est indiqué en gramme.</span> 
+                                                    <span class="hoverpoid">Le poids est indiqué en gramme.</span> 
                                                 </p>
                                             </span>
                                         </div>
@@ -60,7 +60,7 @@
                         </div>
                         <p class="card-text card-description">{{ project.description|slice(0,80) }}...</p>
                         
-                        <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche project complète</a>
+                        <a href="{{ path( 'project_show', { id: project.id } ) }}" class="btn btn-primary">Fiche projet complète</a>
                     </div>
                 </div>
             </div>

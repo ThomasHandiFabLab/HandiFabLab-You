@@ -1,7 +1,7 @@
 /*
 hidden logo
 */
-@media (max-width: 992px){
+@media (max-width: 62em){
     #hiddenlogo{
         display: none;
     }
@@ -9,7 +9,7 @@ hidden logo
 /*
 hidden btn tri
 */
-@media (max-width: 992px){
+@media (max-width: 62em){
     #hiddenbtntri{
         display: none;
     }
@@ -17,23 +17,23 @@ hidden btn tri
 /*
 ifram reduction
 */
-@media (max-width: 992px){
+@media (max-width: 62em){
     .ifram-show{
         display: none;
     }
 }
-@media (max-width: 576px){
+@media (max-width: 36em){
     .ifram-show-sm{
         display: none;
     }
 }
 html, body{
-    min-height: 100vh;
+    min-height: 58em;
     margin: 0;
 }
 
 .navbar-brand img{
-    height: 100px;
+    height: 6.25em;
 }
 
 .champ{
@@ -48,8 +48,8 @@ html, body{
 }
 .landing{
     width: 100%;
-    height: 100vh;
-    background-image: url('../images/poupée.jpg');
+    height: 58em;
+    background-image: url('../images/fondlab.jpg');
     background-size: cover;
     color: white;
 }
@@ -77,14 +77,14 @@ html, body{
 }
 
 .projects .project-picture{
-    height: 200px;
+    height: 12.5em;
     background-size: cover;
     background-position: right;
     position: relative;
 }
 
 .projects .project-info{
-    margin: 5px;
+    margin: 0.3125em;
     display: flex;
     justify-content: space-around;
     font-size: 1.3rem;
@@ -92,15 +92,15 @@ html, body{
 
 .projects .badge-pill{
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 0.3125em;
+    right: 0.3125em;
     font-size: 0.9rem;
 }
 
 .project-landing{
     background-size: cover;
     background-position: center;
-    height: 300px;
+    height: 18.75em;
 }
 
 .project-landing__container{
@@ -116,7 +116,7 @@ html, body{
 
 .project-info > div{
     font-size: 1.2rem;
-    margin: 5px 0;
+    margin: 0.3125em 0;
     display: flex;
     justify-content: center;
 }
@@ -143,18 +143,18 @@ html, body{
 
 .form-project input[type="checkbox"]{
     width: 70%;
-    margin-right: 5px;
+    margin-right: 0.3125em;
 }
 
 .form-project input[type="checkbox"] + label{
-    margin-right: 5px;
+    margin-right: 0.3125em;
 }
 
 .midform{
     padding-top: 10rem;
 }
 .shadow{
-    box-shadow: 5px 5px 5px rgba(100, 99, 99, 0.253);
+    box-shadow: 0.3125em 0.3125em 0.3125em rgba(100, 99, 99, 0.253);
 }
 .identifiant{
     color: rgb(167, 167, 167);
